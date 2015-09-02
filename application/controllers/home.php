@@ -13,7 +13,7 @@ class Home extends Controller {
         
     }
     
-    public function features() {
+    public function allproducts() {
         
     }
 
