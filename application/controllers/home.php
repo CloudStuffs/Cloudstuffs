@@ -16,5 +16,21 @@ class Home extends Controller {
     public function allproducts() {
         
     }
-
+    
+    public function contact() {
+        
+    }
+    
+    public function support() {
+        
+    }
+    
+    public function solutions() {
+        
+    }
+    
+    public function about() {
+        
+    }
+    
 }
