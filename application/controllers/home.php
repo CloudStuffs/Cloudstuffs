@@ -10,7 +10,7 @@ use Framework\Controller as Controller;
 class Home extends Controller {
 
     public function index() {
-        
+        $this->getLayoutView()->set("seo", Framework\Registry::get("seo"));
     }
     
     public function allproducts() {

@@ -1,9 +1,19 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>CloudStuffs</title>
+        <title>{echo $seo->getTitle()}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <meta name="description" content="{echo strip_tags($seo->getDescription())}" />
+        <meta name="keywords" content="{echo strip_tags($seo->getKeywords())}">
+        <meta name="author" content="{echo $seo->getAuthor()}" />
+        <meta name="copyright" content="SWIFTDEAL ONLINE LLP 2015">
+        <meta name="email" content="info[at]cloudstuffs[dot]com">
+        <meta http-equiv="Content-Language" content="en">
+        <meta name="Rating" content="General">
+        <meta name="Distribution" content="Global">
+        <meta name="Robots" content="{echo $seo->getRobots()}">
         
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
