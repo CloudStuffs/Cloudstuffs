@@ -14,6 +14,11 @@ $routes = array(
         "action" => "contact"
     ),
     array(
+        "pattern" => "about",
+        "controller" => "home",
+        "action" => "about"
+    ),
+    array(
         "pattern" => "solutions",
         "controller" => "home",
         "action" => "solutions"
