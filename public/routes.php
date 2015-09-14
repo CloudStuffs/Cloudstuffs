@@ -22,6 +22,21 @@ $routes = array(
         "pattern" => "support",
         "controller" => "home",
         "action" => "support"
+    ),
+    array(
+        "pattern" => "hosting",
+        "controller" => "home",
+        "action" => "hosting"
+    ),
+    array(
+        "pattern" => "online-marketing",
+        "controller" => "home",
+        "action" => "onlineMarketing"
+    ),
+    array(
+        "pattern" => "professional-email",
+        "controller" => "home",
+        "action" => "professionalEmail"
     )
 );
 
