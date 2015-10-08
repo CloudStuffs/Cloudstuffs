@@ -42,3 +42,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 /nbproject/
+sftp-config.json
+
+application/configuration/database.ini
