@@ -1,112 +1,150 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title>{echo $seo->getTitle()}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html lang="en">
 
-        <meta name="description" content="{echo strip_tags($seo->getDescription())}" />
-        <meta name="keywords" content="{echo strip_tags($seo->getKeywords())}">
-        <meta name="author" content="{echo $seo->getAuthor()}" />
-        <meta name="copyright" content="SWIFTDEAL ONLINE LLP 2015">
-        <meta name="email" content="info[at]cloudstuffs[dot]com">
-        <meta http-equiv="Content-Language" content="en">
-        <meta name="Rating" content="General">
-        <meta name="Distribution" content="Global">
-        <meta name="Robots" content="{echo $seo->getRobots()}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{echo $seo->getTitle()}</title>
+    <meta name="description" content="{echo strip_tags($seo->getDescription())}" />
+    <meta name="keywords" content="{echo strip_tags($seo->getKeywords())}">
+    <meta name="author" content="{echo $seo->getAuthor()}" />
+    <meta name="copyright" content="SWIFTDEAL ONLINE LLP 2015">
+    <meta name="email" content="info[at]cloudstuffs[dot]com">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="Rating" content="General">
+    <meta name="Distribution" content="Global">
+    <meta name="Robots" content="{echo $seo->getRobots()}">
 
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-        <link href="{echo CDN}css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="shortcut icon" href="{echo CDN}images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    
+    <!-- Bootstrap & Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{echo CDN}css/block_grid_bootstrap.css">
+    <link rel="stylesheet" href="{echo CDN}css/owl.carousel.css">
+    <link rel="stylesheet" href="{echo CDN}css/owl.theme.css">
+    <link rel="stylesheet" href="{echo CDN}css/animate-custom.css">
+    <link rel="stylesheet" href="{echo CDN}css/slicknav.min.css">
+    <link rel="stylesheet" href="{echo CDN}css/style.css">
 
-        <link href="{echo CDN}css/carousel.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="{echo CDN}css/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+    
+    <!-- facebook -->
+    <meta property="og:title" content="{echo $seo->getTitle()}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="{echo $seo->getPhoto()}" />
+    <meta property="og:url" content="{echo URL}" />
+    <meta property="og:description" content="{echo strip_tags($seo->getDescription())}" />
+    <meta property="fb:app_id" content="1408476126078776" />
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="{echo URL}">
+    <meta name="twitter:title" content="{echo $seo->getTitle()}">
+    <meta name="twitter:description" content="{echo strip_tags($seo->getDescription())}">
+    <meta name="twitter:image" content="{echo $seo->getPhoto()}">
+</head>
 
-        <!-- facebook -->
-        <meta property="og:title" content="{echo $seo->getTitle()}"/>
-        <meta property="og:type" content="article"/>
-        <meta property="og:image" content="{echo $seo->getPhoto()}"/>
-        <meta property="og:url" content="{echo URL}"/>
-        <meta property="og:description" content="{echo strip_tags($seo->getDescription())}"/>
-        <meta property="fb:app_id" content="1408476126078776"/>
-
-        <!-- twitter -->
-        <meta name="twitter:card" content="summary">
-        <meta name="twitter:url" content="{echo URL}">
-        <meta name="twitter:title" content="{echo $seo->getTitle()}">
-        <meta name="twitter:description" content="{echo strip_tags($seo->getDescription())}">
-        <meta name="twitter:image" content="{echo $seo->getPhoto()}">
-    </head>
-    <body>
-
-        {include /layouts/navigation/standard.html}
-        {ayield action}
-
-        <!-- Start Footer -->
-        <span class="footer-arrow"></span>
-        <div class="footer">	  
-            <div class="wrap">	      
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h2>About CloudStuffs</h2>
-                        <p>CloudStuffs is the Leader in managing IT Services of any Buisness Enterprise. We are known in market for our Bandwidth Reduction Server which reduces bandwidth to about 80%</p>
-                        <ul class="links">
-                            <li><a href="/about">About</a> /</li>
-                            <li><a href="/termsofservice">Term of Services</a> /</li>
-                            <li><a href="/privacy">Privacy Policy</a> /</li>
-                            <li><a href="/blog">Blog</a></li>
-                        </ul> 
-                    </div>
-                    <div class="col-lg-6">
-                        <h2>Products</h2>
-                        <div class="products-list">
-                            <ul>
-                                <li><a href="/allproducts"><i class="fa fa-chevron-right"></i> Private cloud </a></li>
-                                <li><a href="/allproducts"><i class="fa fa-chevron-right"></i> DEDICATED SERVER </a></li>
-                                <li><a href="/allproducts"><i class="fa fa-chevron-right"></i> Hybrid cloud</a></li>
-                                <li><a href="/allproducts"><i class="fa fa-chevron-right"></i> Support </a></li>
-                            </ul>
-                            <ul>	                         
-                                <li><a href="/allproducts"><i class="fa fa-chevron-right"></i> Dedicated Hosting</a></li>
-                                <li><a href="/allproducts"><i class="fa fa-chevron-right"></i> Email Hosting </a></li>
-                                <li><a href="/allproducts"><i class="fa fa-chevron-right"></i> Solutions</a></li>
-                                <li><a href="/allproducts"><i class="fa fa-chevron-right"></i> Knowledge Center</a></li>
-                            </ul>
-                            <div class="clear"></div>
+<body>
+    {include /layouts/navigation/standard.html} {ayield action}
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="row">
+            <div class="col-sm-3">
+                <h4>CLOUD HOSTING</h4>
+                <ul>
+                    <li><a href="index-video.html#" title="">cPanel Hosting</a></li>
+                    <li><a href="index-video.html#" title="">Shared Hosting</a></li>
+                    <li><a href="index-video.html#" title="">Cloud VPS</a></li>
+                    <li><a href="index-video.html#" title="">Dedicated Servers</a></li>
+                    <li><a href="index-video.html#" title="">WordPress Hosting</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>HOSTING FOR APPS</h4>
+                <ul>
+                    <li><a href="index-video.html#" title="">WordPress Hosting</a></li>
+                    <li><a href="index-video.html#" title="">Joomla Hosting</a></li>
+                    <li><a href="index-video.html#" title="">Drupal Hosting</a></li>
+                    <li><a href="index-video.html#" title="">Magento Hosting</a></li>
+                    <li><a href="index-video.html#" title="">Ghost Hosting</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="index-video.html#" title="">About Us</a></li>
+                    <li><a href="index-video.html#" title="">Privacy Policy</a></li>
+                    <li><a href="index-video.html#" title="">Acceptable Usage Policy</a></li>
+                    <li><a href="index-video.html#" title="">Terms & Conditions</a></li>
+                    <li><a href="index-video.html#" title="">DMCA Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>NEWSLETTER SIGNUP</h4>
+                <div id="mc_embed_signup">
+                    <form class="form-inline validate material" action="" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+                        <input id="mce-EMAIL" type="email" name="EMAIL" placeholder="E-mail" required>
+                        <div style="position: absolute; left: -5000px;">
+                            <input type="text" name="b_b5638e105dac814ad84960d90_9345afa0aa" tabindex="-1" value="">
                         </div>
-                        <div class="subscribe">
-                            <form>
-                                <input type="text" placeholder="youremail@domain.com" />
-                                <input type="submit" value="Subscribe" />
-                            </form>
-                        </div>
-                    </div>
+                        <input type="submit" value="SUBSCRIBE" name="subscribe" id="mc-embedded-subscribe" class="mtr-btn button-blue">
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <div class="wrap">
-                <div class="copy-right">
-                    <p><a href="http://www.swiftdeal.org/" target="_blank" class="whitetext"><i class="fa fa-copyright fa-fw"></i> SwiftDeal Online LLP</a></p>
-                </div>
-                <div class="social-icons">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
-                </div>
-                <div class="clear"></div>
+    </div>
+    <!-- END FOOTER -->
+    <!-- SOCIAL & COPYRIGHT -->
+    <div class="social">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="social-links">
+                    <li><a href="index-video.html#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="index-video.html#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="index-video.html#" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="index-video.html#" title="Pinterest"><i class="fa fa-pinterest-p"></i></a></li>
+                    <li><a href="index-video.html#" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="index-video.html#" title="Github"><i class="fa fa-github-alt"></i></a></li>
+                </ul>
+                <p class="text-center">Copyright© DataServ. All rights reserved.</p>
             </div>
         </div>
+    </div>
+    <!-- END OF SOCIAL & COPYRIGHT -->
+    <!-- LOGIN MODAL -->
+    <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModal">
+        <div class="modal-dialog" role="document">
+            <form method="post" action="" class="material">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-lock"></i>LOGIN TO YOUR ACCOUNT</h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" name="username" placeholder="E-mail Address">
+                        <input type="password" name="password" placeholder="Password">
+                        <button type="submit" class="mtr-btn button-fab">LOGIN</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- END OF LOGIN MODAL -->
+    <a href="index-video.html#top" id="back-to-top" class="ripple"><i class="fa fa-angle-up"></i></a>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="{echo CDN}js/morphext.min.js"></script>
+    <script src="{echo CDN}js/hoverIntent.js"></script>
+    <script src="{echo CDN}js/superfish.min.js"></script>
+    <script src="{echo CDN}js/owl.carousel.js"></script>
+    <script src="{echo CDN}js/ripple-effect.js"></script>
+    <script src="{echo CDN}js/wow.min.js"></script>
+    <script src="{echo CDN}js/jquery.form.min.js"></script>
+    <script src="{echo CDN}js/jquery.slicknav.min.js"></script>
+    <script src="{echo CDN}js/retina.min.js"></script>
+    <script src="{echo CDN}js/custom.js"></script>
+</body>
 
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script src="{echo CDN}js/owl.carousel.js" type="text/javascript"></script>
-        <script src="{echo CDN}js/main-1.0.js" type="text/javascript"></script>
-
-    </body>
 </html>

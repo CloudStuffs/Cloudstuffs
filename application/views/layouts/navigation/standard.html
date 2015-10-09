@@ -1,64 +1,67 @@
-<!-- Start Header -->
-<div class="header">	
-    <div class="header-top">
-        <div class="wrap"> 
-            <div class="header-top-left">
-                <p>Support: +91-9958636988</p>
-            </div>
-            <div class="header-top-right">
-                <ul>
-                    <li><a href="/webmail" target="_blank"><i class="fa fa-envelope"></i>WebMail</a></li>
-                    <li><a href="/contact"><i class="fa fa-comments"></i>Sales Chat</a></li>
-                    <li  class="login">
-                        <div id="loginContainer">
-                            <a href="#" id="loginButton"><span><i class="fa fa-lock"></i>Login</span></a>
-                            <div id="loginBox" class="login-form">    
-                                <h3>Login into Your Account</h3>
-                                <form id="loginForm">
-                                    <span>
-                                        <i><img src="{echo CDN}images/user.png" alt="" /></i>
-                                        <input type="text" value="yourname@mail.com">
-                                    </span>
-                                    <span>
-                                        <i><img src="{echo CDN}images/lock.png" alt="" /></i>
-                                        <input type="password" value=".........">
-                                    </span>
-                                    <input type="submit" value="Login">
-                                </form>
-                            </div>
-                        </div>
-                    </li>
-                    <li><a href="#" ><i class="fa fa-sign-in"></i>Sign Up</a></li>
-                </ul>
-            </div>
-            <div class="clear"></div>
-        </div> 
-    </div>
-    <div class="header-logo-nav">
-        <div class="navbar navbar-inverse navbar-static-top nav-bg" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <div class="logo"> <a class="navbar-brand" href="/"><img src="{echo CDN}images/logo.png" alt="" /></a></div>
-                    <div class="clear"></div>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class=" menu nav navbar-nav">
-                        <li><a href="/solutions">Solutions</a></li>
-                        <li><a href="/hosting">Hosting</a></li>
-                        <!--<li><a href="/online-marketing">Online Marketing</a></li>-->
-                        <li><a href="/professional-email">Email</a></li>
-                        <li><a href="/allproducts">All Products</a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div>
+<!-- TOP NAV -->
+<div class="topmenu">
+    <div class="row">
+        <div class="col-sm-3">
+            <ul class="top left">
+                <li><i class="fa fa-phone"></i> +91-9958636988</li>
+            </ul>
         </div>
-        <div class="clear"></div>
+        <div class="col-sm-9">
+            <ul class="topright">
+                <li><i class="fa fa-unlock-alt"></i> <a href="index-video.html#" data-toggle="modal" data-target="#LoginModal">CLIENT AREA</a></li>
+                <li><i class="fa fa-commenting-o"></i> <a href="#">LIVE CHAT</a></li>
+                <li><i class="fa fa-hand-pointer-o"></i> <a href="affiliates.html">AFFILIATES</a></li>
+            </ul>
+        </div>
     </div>
 </div>
-<!-- End Header -->
+<!-- END OF TOP NAV -->
+<!-- HEADER -->
+<div class="header">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="logo">
+                <a href="index.html"><img src="{echo CDN}images/logo.png" alt="" /></a>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <nav id="desktop-menu">
+                <ul class="sf-menu" id="navigation">
+                    <li class="current"><a href="index-video.html#">Home</a>
+                        <ul>
+                            <li><a href="index.html">Order Slider</a></li>
+                            <li><a href="index-image.html">Background Header</a></li>
+                            <li><a href="index-image2.html">Background Header 2</a></li>
+                            <li><a href="index-video.html">Video Header</a></li>
+                            <li><a href="index-slider.html">Slider Header</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index-video.html#">Hosting</a>
+                        <ul>
+                            <li><a href="shared.html">Shared Hosting</a></li>
+                            <li><a href="vps.html">Cloud VPS</a></li>
+                            <li><a href="servers.html">Dedicated Servers</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="domains.html">Domains</a></li>
+                    <li><a href="index-video.html#">Pages</a>
+                        <ul>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="datacenter.html">Datacenter</a></li>
+                            <li><a href="elements.html">Elements</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index-video.html#">Blog</a>
+                        <ul>
+                            <li><a href="blog-category.html">Category</a></li>
+                            <li><a href="blog-single.html">Single</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- END OF HEADER -->
