@@ -7,6 +7,7 @@
  */
 use Framework\Controller as Controller;
 use Framework\Registry as Registry;
+use Framework\RequestMethods as RequestMethods;
 
 class Home extends Controller {
 
@@ -23,13 +24,6 @@ class Home extends Controller {
         $this->getLayoutView()->set("seo", Framework\Registry::get("seo"));
     }
 
-    public function allproducts() {
-        $this->seo(array(
-            "title" => "All Products",
-            "view" => $this->getLayoutView()
-        ));
-    }
-
     public function contact() {
         $this->seo(array(
             "title" => "Contact Us",
@@ -44,37 +38,9 @@ class Home extends Controller {
         ));
     }
 
-    public function solutions() {
-        $this->seo(array(
-            "title" => "Buisness Enterprise Solutions CloudStuffs Provide",
-            "view" => $this->getLayoutView()
-        ));
-    }
-
     public function about() {
         $this->seo(array(
             "title" => "Buisness Enterprise Solutions CloudStuffs Provide",
-            "view" => $this->getLayoutView()
-        ));
-    }
-
-    public function hosting() {
-        $this->seo(array(
-            "title" => "Managed Hosting",
-            "view" => $this->getLayoutView()
-        ));
-    }
-
-    public function onlineMarketing() {
-        $this->seo(array(
-            "title" => "Running Best Online Camapigns",
-            "view" => $this->getLayoutView()
-        ));
-    }
-
-    public function professionalEmail() {
-        $this->seo(array(
-            "title" => "Get free professional Email",
             "view" => $this->getLayoutView()
         ));
     }

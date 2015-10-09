@@ -4,11 +4,6 @@
 
 $routes = array(
     array(
-        "pattern" => "allproducts",
-        "controller" => "home",
-        "action" => "allproducts"
-    ),
-    array(
         "pattern" => "contact",
         "controller" => "home",
         "action" => "contact"
@@ -19,29 +14,9 @@ $routes = array(
         "action" => "about"
     ),
     array(
-        "pattern" => "solutions",
-        "controller" => "home",
-        "action" => "solutions"
-    ),
-    array(
         "pattern" => "support",
         "controller" => "home",
         "action" => "support"
-    ),
-    array(
-        "pattern" => "hosting",
-        "controller" => "home",
-        "action" => "hosting"
-    ),
-    array(
-        "pattern" => "online-marketing",
-        "controller" => "home",
-        "action" => "onlineMarketing"
-    ),
-    array(
-        "pattern" => "professional-email",
-        "controller" => "home",
-        "action" => "professionalEmail"
     )
 );
 

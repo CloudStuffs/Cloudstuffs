@@ -235,3 +235,38 @@ function initialize() {
     });
 
 }
+
+(function($) {
+    "use strict";
+
+    window.odometerOptions = {
+        format: 'd'
+    };
+
+    jQuery(document).ready(function() {
+
+        $('.odometer').waypoint(function() {
+            setTimeout(function() {
+                $('#odometer1.odometer').html(510);
+            }, 500);
+            setTimeout(function() {
+                $('#odometer2.odometer').html(81825);
+            }, 1000);
+            setTimeout(function() {
+                $('#odometer3.odometer').html(920);
+            }, 1500);
+            setTimeout(function() {
+                $('#odometer4.odometer').html(8000);
+            }, 2000);
+            setTimeout(function() {
+                $('#odometer5.odometer').html(5001);
+            }, 2500);
+            setTimeout(function() {
+                $('#odometer6.odometer').html(392);
+            }, 3000);
+        }, {
+            offset: 800,
+            triggerOnce: true
+        });
+    });
+})(jQuery);

@@ -7,7 +7,7 @@ $seo = new SEO(array(
     "title" => "Cloudstuffs",
     "keywords" => "Application Support and Application Development" ,
     "description" => "We are internet company in india",
-    "author" => "",
+    "author" => "Faizan Ayubi",
     "robots" => "INDEX,FOLLOW",
     "photo" => CDN . "images/logo.png"
 ));
