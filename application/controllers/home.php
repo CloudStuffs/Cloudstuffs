@@ -45,4 +45,11 @@ class Home extends Controller {
         ));
     }
 
+    public function affiliates() {
+        $this->seo(array(
+            "title" => "Why Affiliate?",
+            "view" => $this->getLayoutView()
+        ));
+    }
+
 }
