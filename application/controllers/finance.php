@@ -1,13 +1,12 @@
 <?php
 
 /**
- * Description of billing
+ * Description of Finance
  *
  * @author Faizan Ayubi
  */
-use Framework\Controller as Controller;
 use Framework\Registry as Registry;
 
-class Billing extends Controller {
+class Finance extends Admin {
     //put your code here
 }

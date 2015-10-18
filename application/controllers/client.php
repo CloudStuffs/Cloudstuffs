@@ -7,7 +7,7 @@
 use Framework\RequestMethods as RequestMethods;
 use Framework\Registry as Registry;
 
-class Member extends Auth {
+class Client extends Auth {
     
     /**
      * @before _secure, changeLayout
