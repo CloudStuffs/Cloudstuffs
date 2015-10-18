@@ -34,6 +34,17 @@ class User extends Shared\Model {
      * @column
      * @readwrite
      * @type text
+     * @length 15
+     * 
+     * @validate required, max(15)
+     * @label phone number
+     */
+    protected $_phone;
+
+    /**
+     * @column
+     * @readwrite
+     * @type text
      * @length 100
      * @index
      * 
