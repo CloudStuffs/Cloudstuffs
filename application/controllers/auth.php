@@ -6,6 +6,7 @@
  */
 use Shared\Controller as Controller;
 use Framework\RequestMethods as RequestMethods;
+use Framework\Registry as Registry;
 
 class Auth extends Controller {
     
@@ -49,7 +50,6 @@ class Auth extends Controller {
             $exist = User::first(array("email = ?" => RequestMethods::post("email")));
             if (!$exist) {
                 $user = new User(array(
-                    "username" => RequestMethods::post("username"),
                     "name" => RequestMethods::post("name"),
                     "email" => RequestMethods::post("email"),
                     "password" => sha1(RequestMethods::post("password")),
@@ -58,14 +58,27 @@ class Auth extends Controller {
                     "live" => 0
                 ));
                 $user->save();
-                
-                $platform = new Platform(array(
-                    "user_id" => $user->id,
-                    "name" => "FACEBOOK_PAGE",
-                    "link" =>  RequestMethods::post("link"),
-                    "image" => $this->_upload("fbadmin", "images")
+                $this->setUser($user);
+
+                $organization = new Organization(array(
+                    "name" => RequestMethods::post("organization"),
+                    "details" => RequestMethods::post("details", ""),
+                    "website" => RequestMethods::post("website", ""),
+                    "email" => RequestMethods::post("email", ""),
+                    "phone" => RequestMethods::post("phone", ""),
+                    "image" => ""
                 ));
-                $platform->save();
+                $organization->save();
+
+                $session = Registry::get("session");
+                $session->set("organization", $organization);
+                
+                $member = new Member(array(
+                    "user_id" => $user->id,
+                    "organization_id" => $organization->id,
+                    "designation" => "director"
+                ));
+                $member->save();
                 $view->set("message", "Your account has been created and will be activate within 3 hours after verification.");
             } else {
                 $view->set("message", 'Username exists, login from <a href="/admin/login">here</a>');
@@ -73,7 +86,7 @@ class Auth extends Controller {
         }
 
         if ($this->user) {
-            self::redirect("/member");
+            self::redirect("/client");
         }
     }
     

@@ -10,7 +10,7 @@ use Framework\Registry as Registry;
 class Client extends Auth {
     
     /**
-     * @before _secure, changeLayout
+     * @before _secure, clientLayout
      */
     public function index() {
         $this->seo(array(
@@ -18,24 +18,10 @@ class Client extends Auth {
             "view" => $this->getLayoutView()
         ));
         $view = $this->getActionView();
-        $click = 0;
-        
-        $links = Link::all(array("user_id = ?" => $this->user->id), array("item_id", "short", "created"), "created", "desc", 10, 1);
-        foreach ($links as $link) {
-            $stat = Stat::first(array("link_id = ?" => $link->id), array("shortUrlClicks"));
-            if ($stat) {
-                $click += $stat->shortUrlClicks;
-            }
-        }
-        
-        $view->set("links", $links);
-        $view->set("earnings", $this->totalEarnings()["total"]);
-        $view->set("pending", $this->totalEarnings()["pending"]);
-        $view->set("click", $click);
     }
     
     /**
-     * @before _secure, changeLayout
+     * @before _secure, clientLayout
      */
     public function profile() {
         $this->seo(array(
@@ -72,7 +58,7 @@ class Client extends Auth {
     }
     
     /**
-     * @before _secure, changeLayout
+     * @before _secure, clientLayout
      */
     public function payments() {
         $this->seo(array(
@@ -83,8 +69,8 @@ class Client extends Auth {
         $view->set("paymens", array());
     }
     
-    public function changeLayout() {
-        $this->defaultLayout = "layouts/member";
+    public function clientLayout() {
+        $this->defaultLayout = "layouts/client";
         $this->setLayout();
     }
 }

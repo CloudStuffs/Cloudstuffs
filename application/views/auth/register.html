@@ -9,9 +9,6 @@
                 <form role="form" method="post" action="" enctype="multipart/form-data">
                     <fieldset>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Username" name="username" type="text" autofocus required="">
-                        </div>
-                        <div class="form-group">
                             <input class="form-control" placeholder="Full Name" name="name" type="text" required="">
                         </div>
                         <div class="form-group">
@@ -24,12 +21,7 @@
                             <input class="form-control" placeholder="Password" name="password" type="password" value="" required="">
                         </div>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Facebook Page Link" name="link" type="url" required="">
-                        </div>
-                        <div class="form-group">
-                            <label>Screenshot of Page Admin</label>
-                            <input class="form-control" name="fbadmin" type="file" required="">
-                            <small class="help-block">The size of image should be less than 2 MB</small>
+                            <input class="form-control" placeholder="Comapny Name" name="organization" type="text" required="">
                         </div>
                         <div class="checkbox">
                             <label>
@@ -38,7 +30,7 @@
                         </div>
                         <input type="hidden" name="action" value="register">
                         <button type="submit" class="btn btn-success">Register</button>
-                        <a href="/member/register" class="btn btn-primary">Login</a>
+                        <a href="/auth/login" class="btn btn-primary">Login</a>
                     </fieldset>
                 </form>
             </div>
