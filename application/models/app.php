@@ -1,11 +1,11 @@
 <?php
 
 /**
- * The project Model
+ * The app Model
  *
  * @author Faizan Ayubi
  */
-class Project extends Shared\Model {
+class App extends Shared\Model {
 
     /**
      * @column

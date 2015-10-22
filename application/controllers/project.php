@@ -8,7 +8,7 @@
 use Framework\Registry as Registry;
 use Framework\RequestMethods as RequestMethods;
 
-class App extends Admin {
+class Project extends Admin {
     
     public function all() {
     	$this->seo(array(
