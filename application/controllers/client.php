@@ -26,10 +26,16 @@ class Client extends Manager {
         $tickets = Ticket::count(array("organization_id = ?" => $this->organization->id, "live = ?" => true));
         $bugs = Bug::count(array("organization_id = ?" => $this->organization->id, "live = ?" => true));
 
+        $app = App::first(array("organization_id = ?" => $this->organization->id), array("id"));
+        $tasks = Task::all(array("app_id = ?" => $app->id), array("description", "enddate"), "startdate", "desc", 5, 1);
+        $payments = Payment::all(array("organization_id = ?" => $this->organization->id), array("id", "amount", "created"), "created", "desc", 5, 1);
+
         $view->set("projects", $projects);
         $view->set("members", $members);
         $view->set("tickets", $tickets);
         $view->set("bugs", $bugs);
+        $view->set("tasks", $tasks);
+        $view->set("payments", $payments);
     }
 
     /**
