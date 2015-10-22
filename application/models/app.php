@@ -10,6 +10,20 @@ class App extends Shared\Model {
     /**
      * @column
      * @readwrite
+     * @type integer
+     */
+    protected $_user_id;
+
+    /**
+     * @column
+     * @readwrite
+     * @type integer
+     */
+    protected $_organization_id;
+
+    /**
+     * @column
+     * @readwrite
      * @type text
      * @length 255
      * 

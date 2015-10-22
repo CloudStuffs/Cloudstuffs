@@ -21,7 +21,7 @@ class Manage extends Shared\Model {
      * @type integer
      * @index
      */
-    protected $_project_id;
+    protected $_app_id;
     
     /**
      * @column

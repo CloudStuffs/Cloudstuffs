@@ -21,6 +21,14 @@ class Ticket extends Shared\Model {
      * @type integer
      * @index
      */
+    protected $_organization_id;
+
+    /**
+     * @column
+     * @readwrite
+     * @type integer
+     * @index
+     */
     protected $_assigned;
     
     /**

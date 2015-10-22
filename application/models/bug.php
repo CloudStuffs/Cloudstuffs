@@ -11,6 +11,15 @@ class Bug extends Shared\Model {
      * @column
      * @readwrite
      * @type integer
+     * @index
+     */
+    protected $_organization_id;
+
+    /**
+     * @column
+     * @readwrite
+     * @type integer
+     * @index
      */
     protected $_user_id;
 
@@ -18,8 +27,9 @@ class Bug extends Shared\Model {
      * @column
      * @readwrite
      * @type integer
+     * @index
      */
-    protected $_project_id;
+    protected $_app_id;
 
     /**
      * @column
