@@ -8,7 +8,7 @@
 use Framework\Registry as Registry;
 use Framework\RequestMethods as RequestMethods;
 
-class Hosting extends Admin {
+class Hosting extends Client {
     
     public function vps() {
     	$this->seo(array(

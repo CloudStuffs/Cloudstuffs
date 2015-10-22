@@ -8,7 +8,7 @@
 use Framework\Registry as Registry;
 use Framework\RequestMethods as RequestMethods;
 
-class Project extends Admin {
+class Project extends Client {
     
     public function all() {
     	$this->seo(array("title" => "All Projects Developed by US","view" => $this->getLayoutView()));
@@ -21,5 +21,10 @@ class Project extends Admin {
 
     	$projects = App::all(array("organization_id = ?" => $this->organization->id));
         $view->set("projects", $projects);
+    }
+
+    public function quotations() {
+        $this->seo(array("title" => "Quotations","view" => $this->getLayoutView()));
+        $view = $this->getActionView();
     }
 }

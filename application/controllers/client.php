@@ -7,7 +7,7 @@
 use Framework\RequestMethods as RequestMethods;
 use Framework\Registry as Registry;
 
-class Client extends Auth {
+class Client extends Manager {
 
     /**
      * @readwrite
@@ -41,6 +41,17 @@ class Client extends Auth {
 
         $members = Member::all(array("organization_id = ?" => $this->organization->id));
         $view->set("members", $members);
+    }
+
+    /**
+     * @before _secure, clientLayout
+     */
+    public function company() {
+        $this->seo(array("title" => "Dashboard","view" => $this->getLayoutView()));
+        $view = $this->getActionView();
+
+        $organization = Organization::first(array("id = ?" => $this->organization->id));
+        $view->set("organization", $organization);
     }
     
     /**
