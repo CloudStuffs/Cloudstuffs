@@ -35,16 +35,12 @@ class Auth extends Controller {
     }
 
     protected function session() {
-        $manager = Manage::first(array("user_id = ?" => $this->user->id));
-        if ($manager) {
-            self::redirect("/manager");
-        }
         $member = Member::first(array("user_id = ?" => $this->user->id), array("organization_id"));
         if($member) {
             $session = Registry::get("session");
             $organization = Organization::first(array("id = ?" => $member->organization_id));
             $session->set("organization", $organization);
-            self::redirect("/client");
+            self::redirect("/manage");
         }
     }
     
