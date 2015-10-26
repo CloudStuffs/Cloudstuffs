@@ -62,7 +62,7 @@ class Auth extends Controller {
                     "password" => sha1(RequestMethods::post("password")),
                     "phone" => RequestMethods::post("phone"),
                     "admin" => 0,
-                    "live" => 0
+                    "live" => 1
                 ));
                 $user->save();
                 $this->setUser($user);
@@ -86,7 +86,7 @@ class Auth extends Controller {
                     "designation" => "director"
                 ));
                 $member->save();
-                $view->set("message", "Your account has been created and will be activate within 3 hours after verification.");
+                $this->session();
             } else {
                 $view->set("message", 'Username exists, login from <a href="/admin/login">here</a>');
             }
