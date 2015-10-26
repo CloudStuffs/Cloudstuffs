@@ -7,7 +7,7 @@
  */
 use Framework\Registry as Registry;
 
-class Support extends Client {
+class Support extends Manage {
     
 	public function tickets() {
 		$this->seo(array("title" => "Dashboard","view" => $this->getLayoutView()));

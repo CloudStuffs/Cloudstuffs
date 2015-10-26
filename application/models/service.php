@@ -35,6 +35,6 @@ class Service extends Shared\Model {
      * @readwrite
      * @type datetime
      */
-    protected $_billing_id;
+    protected $_bill_id;
 
 }

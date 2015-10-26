@@ -29,7 +29,7 @@ class Payment extends Shared\Model {
      * @type integer
      * @index
      */
-    protected $_app_id;
+    protected $_bill_id;
 
     /**
      * @column

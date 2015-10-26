@@ -7,7 +7,7 @@
  */
 use Framework\Registry as Registry;
 
-class Finance extends Client {
+class Finance extends Manage {
     
     public function invoices() {
     	$this->seo(array("title" => "Invoices","view" => $this->getLayoutView()));

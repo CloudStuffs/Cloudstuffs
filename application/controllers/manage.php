@@ -7,7 +7,7 @@
 use Framework\RequestMethods as RequestMethods;
 use Framework\Registry as Registry;
 
-class Client extends Manager {
+class Manage extends Admin {
 
     /**
      * @readwrite

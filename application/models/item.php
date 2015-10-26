@@ -28,8 +28,9 @@ class Item extends Shared\Model {
     /**
      * @column
      * @readwrite
-     * @type integer
+     * @type text
+     * @length 128
      */
-    protected $_amount;
+    protected $_category;
 
 }

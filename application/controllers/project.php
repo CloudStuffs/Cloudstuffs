@@ -8,7 +8,7 @@
 use Framework\Registry as Registry;
 use Framework\RequestMethods as RequestMethods;
 
-class Project extends Client {
+class Project extends Manage {
     
     public function all() {
     	$this->seo(array("title" => "All Projects Developed by US","view" => $this->getLayoutView()));

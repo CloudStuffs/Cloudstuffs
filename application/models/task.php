@@ -21,7 +21,15 @@ class Task extends Shared\Model {
      * @type integer
      * @index
      */
-    protected $_app_id;
+    protected $_item_id;
+
+    /**
+     * @column
+     * @readwrite
+     * @type integer
+     * @index
+     */
+    protected $_organization_id;
 
     /**
      * @column
@@ -33,15 +41,16 @@ class Task extends Shared\Model {
     /**
      * @column
      * @readwrite
-     * @type datetime
+     * @type text
+     * @length 32
      */
-    protected $_startdate;
+    protected $_status;
 
     /**
      * @column
      * @readwrite
      * @type datetime
      */
-    protected $_enddate;
+    protected $_deadline;
 
 }
