@@ -15,31 +15,15 @@ class Manage extends Admin {
     protected $_organization;
     
     /**
-     * @before _secure, clientLayout
+     * @before _secure, manageLayout
      */
     public function index() {
         $this->seo(array("title" => "Dashboard","view" => $this->getLayoutView()));
         $view = $this->getActionView();
-
-        $projects = App::count(array("organization_id = ?" => $this->organization->id));
-        $members = Member::count(array("organization_id = ?" => $this->organization->id));
-        $tickets = Ticket::count(array("organization_id = ?" => $this->organization->id, "live = ?" => true));
-        $bugs = Bug::count(array("organization_id = ?" => $this->organization->id, "live = ?" => true));
-
-        $app = App::first(array("organization_id = ?" => $this->organization->id), array("id"));
-        $tasks = Task::all(array("app_id = ?" => $app->id), array("description", "enddate"), "startdate", "desc", 5, 1);
-        $payments = Payment::all(array("organization_id = ?" => $this->organization->id), array("id", "amount", "created"), "created", "desc", 5, 1);
-
-        $view->set("projects", $projects);
-        $view->set("members", $members);
-        $view->set("tickets", $tickets);
-        $view->set("bugs", $bugs);
-        $view->set("tasks", $tasks);
-        $view->set("payments", $payments);
     }
 
     /**
-     * @before _secure, clientLayout
+     * @before _secure, manageLayout
      */
     public function team() {
         $this->seo(array("title" => "Dashboard","view" => $this->getLayoutView()));
@@ -50,7 +34,7 @@ class Manage extends Admin {
     }
 
     /**
-     * @before _secure, clientLayout
+     * @before _secure, manageLayout
      */
     public function company() {
         $this->seo(array("title" => "Dashboard","view" => $this->getLayoutView()));
@@ -61,7 +45,7 @@ class Manage extends Admin {
     }
     
     /**
-     * @before _secure, clientLayout
+     * @before _secure, manageLayout
      */
     public function profile() {
         $this->seo(array(
@@ -98,7 +82,7 @@ class Manage extends Admin {
     }
     
     /**
-     * @before _secure, clientLayout
+     * @before _secure, manageLayout
      */
     public function payments() {
         $this->seo(array(
@@ -109,8 +93,8 @@ class Manage extends Admin {
         $view->set("paymens", array());
     }
     
-    public function clientLayout() {
-        $this->defaultLayout = "layouts/client";
+    public function manageLayout() {
+        $this->defaultLayout = "layouts/manage";
         $this->setLayout();
 
         $session = Registry::get("session");
