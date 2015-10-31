@@ -40,6 +40,8 @@ class Auth extends Controller {
             $session = Registry::get("session");
             $organization = Organization::first(array("id = ?" => $member->organization_id));
             $session->set("organization", $organization);
+            $members = Member::all(array("user_id = ?" => $this->user->id));
+            $session->set("members", $members);
             self::redirect("/manage");
         }
     }
