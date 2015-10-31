@@ -21,9 +21,9 @@ class Manage extends Admin {
         $this->seo(array("title" => "Dashboard","view" => $this->getLayoutView()));
         $view = $this->getActionView();
 
-        $projects = Service::count(array("organization_id = ?" => $this->organization->id));
+        $projects = Service::all(array("organization_id = ?" => $this->organization->id), array("property", "bill_id", "created"), "created", "desc", 10, 1);
         $members = Member::count(array("organization_id = ?" => $this->organization->id));
-        $tasks = Task::count(array("organization_id = ?" => $this->organization->id));
+        $tasks = Task::all(array("organization_id = ?" => $this->organization->id), array("created", "description"), "created", "desc", 10, 1);
         $tickets = Ticket::count(array("organization_id = ?" => $this->organization->id));
 
         $view->set("projects", $projects);
