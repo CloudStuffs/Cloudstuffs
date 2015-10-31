@@ -19,8 +19,16 @@ class Project extends Manage {
     	$this->seo(array("title" => "Manage Projects", "view" => $this->getLayoutView()));
     	$view = $this->getActionView();
 
-    	$projects = App::all(array("organization_id = ?" => $this->organization->id));
+    	$projects = Service::all(array("organization_id = ?" => $this->organization->id));
         $view->set("projects", $projects);
+    }
+
+    public function tasks() {
+        $this->seo(array("title" => "Manage Task", "view" => $this->getLayoutView()));
+        $view = $this->getActionView();
+
+        $tasks = Task::all(array("organization_id = ?" => $this->organization->id));
+        $view->set("tasks", $tasks);
     }
 
     public function quotations() {

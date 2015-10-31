@@ -20,6 +20,16 @@ class Manage extends Admin {
     public function index() {
         $this->seo(array("title" => "Dashboard","view" => $this->getLayoutView()));
         $view = $this->getActionView();
+
+        $projects = Service::count(array("organization_id = ?" => $this->organization->id));
+        $members = Member::count(array("organization_id = ?" => $this->organization->id));
+        $tasks = Task::count(array("organization_id = ?" => $this->organization->id));
+        $tickets = Ticket::count(array("organization_id = ?" => $this->organization->id));
+
+        $view->set("projects", $projects);
+        $view->set("members", $members);
+        $view->set("tasks", $tasks);
+        $view->set("tickets", $tickets);
     }
 
     /**

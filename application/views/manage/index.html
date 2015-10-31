@@ -9,7 +9,7 @@
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-3">
-                <div class="panel panel-yellow">
+                <div class="panel panel-primary">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3">
-                <div class="panel panel-green">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
@@ -39,11 +39,11 @@
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">{echo $members}</div>
-                                <div>Users</div>
+                                <div>Member</div>
                             </div>
                         </div>
                     </div>
-                    <a href="/client/team">
+                    <a href="/manage/team">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -53,11 +53,33 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-3">
-                <div class="panel panel-primary">
+                <div class="panel panel-success">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
                                 <i class="fa fa-file-text-o fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">{echo $tasks}</div>
+                                <div>Tasks</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/project/tasks">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-bug fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">{echo $tickets}</div>
@@ -66,28 +88,6 @@
                         </div>
                     </div>
                     <a href="/support/tickets">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3">
-                <div class="panel panel-red">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-bug fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">{echo $bugs}</div>
-                                <div>Pending Bugs</div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="/support/bugs">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
