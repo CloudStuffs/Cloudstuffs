@@ -58,54 +58,40 @@ class Manage extends Admin {
         $organization = Organization::first(array("id = ?" => $this->organization->id));
         $view->set("organization", $organization);
     }
-    
+
     /**
      * @before _secure, manageLayout
      */
     public function profile() {
-        $this->seo(array(
-            "title" => "Profile",
-            "view" => $this->getLayoutView()
-        ));
+        $this->seo(array("title" => "Profile","view" => $this->getLayoutView()));
         $view = $this->getActionView();
-        $account = Account::first(array("user_id = ?" => $this->user->id));
-        if(!$account) {
-            $account = new Account();
+
+        if(RequestMethods::post("organization")) {
+            $organization = Organization::first(array("id = ?" => $this->organization->id));
+            $organization->name = RequestMethods::post("org_name");
+            $organization->website = RequestMethods::post("website");
+            $organization->details = RequestMethods::post("details");
+            $organization->email = RequestMethods::post("org_email");
+            $organization->phone = RequestMethods::post("org_phone");
+
+            $organization->save();
         }
-        
-        if (RequestMethods::post('action') == 'saveUser') {
+
+        if(RequestMethods::post("user")) {
             $user = User::first(array("id = ?" => $this->user->id));
-            $user->phone = RequestMethods::post('phone');
-            $user->name = RequestMethods::post('name');
-            $user->save();
-            $view->set("success", true);
-            $view->set("user", $user);
-        }
-        
-        if (RequestMethods::get("action") == "saveAccount") {
-            $account->user_id = $this->user->id;
-            $account->name = RequestMethods::post("name");
-            $account->bank = RequestMethods::post("bank");
-            $account->number = RequestMethods::post("number");
-            $account->ifsc = RequestMethods::post("ifsc");
+            $user->name = RequestMethods::post("name");
+            $user->email = RequestMethods::post("email");
+            $user->phone = RequestMethods::post("phone");
+
+            if(RequestMethods::post("password")) {
+                $user->password = sha1(RequestMethods::post("password"));
+            }
             
-            $account->save();
+            $user->save();
+
             $view->set("success", true);
         }
         
-        $view->set("account", $account);
-    }
-    
-    /**
-     * @before _secure, manageLayout
-     */
-    public function payments() {
-        $this->seo(array(
-            "title" => "Payments",
-            "view" => $this->getLayoutView()
-        ));
-        $view = $this->getActionView();
-        $view->set("paymens", array());
     }
     
     public function manageLayout() {
