@@ -48,9 +48,8 @@ class Service extends Shared\Model {
     /**
      * @column
      * @readwrite
-     * @type text
-     * @length 32
+     * @type integer
      */
-    protected $_type;
+    protected $_period;
 
 }
