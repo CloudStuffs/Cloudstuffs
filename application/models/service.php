@@ -41,7 +41,7 @@ class Service extends Shared\Model {
     /**
      * @column
      * @readwrite
-     * @type datetime
+     * @type integer
      */
     protected $_bill_id;
 

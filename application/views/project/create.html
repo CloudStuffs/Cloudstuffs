@@ -3,10 +3,10 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header text-center">Create Project</h1>
-            {if isset($success)}
-            <div class="alert alert-success alert-dismissible fade in" role="alert">
+            {if ($members[0]->designation !== "manager")}
+            <div class="alert alert-info alert-dismissible fade in" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                Project created <strong>Successfully!</strong>
+                Please Contact your project manager to create project for you.
             </div>
             {/if}
             <form method="post" action="">
@@ -23,12 +23,12 @@
                     <hr>
                     <div class="form-group">
                         <label>Bill Amount (USD)</label>
-                        <input type="text" name="title" class="form-control" maxlength="100" required="">
+                        <input type="text" name="amount" class="form-control" maxlength="100" required="">
                         <span class="help-block">Excluding 14.00% Tax</span>
                     </div>
                     <div class="form-group">
                         <label>Bill Due Date</label>
-                        <input type="url" class="form-control" name="url" required="">
+                        <input type="date" class="form-control" name="duedate" required="">
                         <span class="help-block">{echo Shared\Markup::errors($errors, "url")}</span>
                     </div>
                     <div class="form-group">
@@ -48,7 +48,7 @@
                         <textarea class="form-control editor" name="comment" rows="3"></textarea>
                         <span class="help-block">Include all the base features of project</span>
                     </div>
-                    <input type="hidden" name="action" value="content">
+                    <input type="hidden" name="action" value="project">
                     <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check-circle"></i> Create</button>
                 </div>
             </form>

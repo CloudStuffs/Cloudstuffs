@@ -16,15 +16,14 @@
                     <tbody>
                         {foreach $project in $projects}
                         {script $item = Item::first(array("id = ?" => $project->property_id), array("id", "title"))}
-                        {script $bill = Bill::first(array("id = ?" => $service->bill_id), array("created", "amount"))}
+                        {script $bill = Bill::first(array("id = ?" => $project->bill_id), array("created", "amount"))}
                         <tr>
                             <td>{echo $item->id}</td>
-                            <td><a href="/project/details/project/{$project->id}" target="_blank">{echo $item->title}</a></td>
-                            <td>{echo $bill->amount}</td>
+                            <td><a href="/project/details/{$project->id}" target="_blank">{echo $item->title}</a></td>
+                            <td>${echo $bill->amount}</td>
                             <td>{echo $bill->created}</td>
                             <td>
-                                <a href="/content/edit/{$content->id}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>&nbsp;
-                                <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>&nbsp;
+                                <a href="/content/edit/{$content->id}" class="btn btn-primary btn-xs"><i class="fa fa-download"></i> Invoice</a>
                             </td>
                         </tr>
                         {/foreach}

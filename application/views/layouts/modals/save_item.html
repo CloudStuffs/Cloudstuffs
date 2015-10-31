@@ -8,7 +8,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label>Title</label>
-                    <input class="form-control" name="title" value="{$item->title}">
+                    <input class="form-control" name="title" value="{$item->title}" required="">
                 </div>
                 <div class="form-group">
                     <label>Details</label>
@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group">
                     <label>Category</label>
-                    <select class="form-control" name="title" value="{$item->category}">
+                    <select class="form-control" name="category" value="{$item->category}">
                         <option value="application">Application</option>
                         <option value="android_app">Android App</option>
                         <option value="ios_app">iOS App</option>
@@ -25,7 +25,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Save</button>
+                <input type="hidden" name="action" value="item">
+                <button type="submit" class="btn btn-primary">Save</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </form>
