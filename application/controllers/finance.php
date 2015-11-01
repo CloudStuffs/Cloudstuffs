@@ -39,8 +39,28 @@ class Finance extends Manage {
     	$this->seo(array("title" => "Payments","view" => $this->getLayoutView()));
         $view = $this->getActionView();
 
+        if (RequestMethods::post("action") == "addPayment") {
+            $payment = new Payment(array(
+                "user_id" => $this->user->id,
+                "organization_id" => $this->organization->id,
+                "bill_id" => $bill_id,
+                "amount" => RequestMethods::post("amount"),
+                "mode" => RequestMethods::post("mode"),
+                "ref_id" => RequestMethods::post("ref_id")
+            ));
+            $payment->save();
+        }
+
         $payments = Payment::all(array("organization_id = ?" => $this->organization->id, "bill_id = ?" => $bill_id), array("amount", "ref_id", "mode", "bill_id", "created"));
         $view->set("payments", $payments);
+    }
+
+    /**
+     * @before _secure, manageLayout
+     */
+    public function bank() {
+        $this->seo(array("title" => "Company Account","view" => $this->getLayoutView()));
+        $view = $this->getActionView();
     }
 
     public function convertCurrency($amount=1, $from="USD", $to="INR") {
