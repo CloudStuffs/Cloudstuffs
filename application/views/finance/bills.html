@@ -1,7 +1,18 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header text-center">Payments</h1>
+            <h1 class="page-header text-center">Generated Bills</h1>
+            <form class="form-inline text-center" role="form" method="get" action="">
+                <div class="form-group">
+                    <div class="input-group">
+                        <label class="sr-only">Created</label>
+                        <span class="add-on input-group-addon"><i class="fa fa-calendar fa-fw"></i> Date</span>
+                        <input type="date" style="width: 200px" name="created" class="form-control" value="{echo $created}" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Show</button>
+            </form>
+            <hr>
             <div class="panel panel-default">
                 <table class="table">
                     <thead>
@@ -23,7 +34,7 @@
                             <td>${echo $bill->amount}</td>
                             <td>{echo $bill->created}</td>
                             <td>
-                                <a href="/content/edit/{$content->id}" class="btn btn-primary btn-xs"><i class="fa fa-download"></i> Invoice</a>
+                                <a href="/finance/invoice/{$service->id}" class="btn btn-primary btn-xs"><i class="fa fa-download"></i> Invoice</a>
                             </td>
                         </tr>
                         {/foreach}

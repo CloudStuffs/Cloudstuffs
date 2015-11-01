@@ -45,6 +45,17 @@ class User extends Shared\Model {
      * @column
      * @readwrite
      * @type text
+     * @length 3
+     * 
+     * @validate required, max(3)
+     * @label currency
+     */
+    protected $_currency = "USD";
+
+    /**
+     * @column
+     * @readwrite
+     * @type text
      * @length 100
      * @index
      * 

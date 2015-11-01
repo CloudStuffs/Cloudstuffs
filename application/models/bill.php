@@ -11,6 +11,14 @@ class Bill extends Shared\Model {
      * @column
      * @readwrite
      * @type integer
+     * @index
+     */
+    protected $_service_id;
+
+    /**
+     * @column
+     * @readwrite
+     * @type integer
      */
     protected $_amount;
 

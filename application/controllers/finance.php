@@ -28,8 +28,20 @@ class Finance extends Manage {
         $this->seo(array("title" => "Bills","view" => $this->getLayoutView()));
         $view = $this->getActionView();
 
-        $services = Service::all(array("organization_id = ?" => $this->organization->id), array("property", "bill_id", "property_id"), "created", "desc", 10, 1);
+        $created = RequestMethods::get("created", "");
+        $page = RequestMethods::get("page", 1);
+        $limit = RequestMethods::get("limit", 10);
+
+        $where = array(
+            "organization_id = ?" => $this->organization->id,
+            "created LIKE ?" => "%{$created}%"
+        );
+        $services = Service::all($where, array("property", "bill_id", "property_id", "id"), "created", "desc", $limit, $page);
+
         $view->set("services", $services);
+        $view->set("created", $created);
+        $view->set("page", $page);
+        $view->set("limit", $limit);
     }
 
     /**

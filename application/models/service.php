@@ -43,13 +43,13 @@ class Service extends Shared\Model {
      * @readwrite
      * @type integer
      */
-    protected $_bill_id;
+    protected $_period;
 
     /**
      * @column
      * @readwrite
      * @type integer
      */
-    protected $_period;
+    protected $_timeline;
 
 }
