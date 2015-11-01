@@ -35,15 +35,33 @@ class Auth extends Controller {
     }
 
     protected function session() {
-        $member = Member::first(array("user_id = ?" => $this->user->id), array("organization_id"));
-        if($member) {
+        $members = Member::all(array("user_id = ?" => $this->user->id));
+        if($members) {
             $session = Registry::get("session");
-            $organization = Organization::first(array("id = ?" => $member->organization_id));
-            $session->set("organization", $organization);
-            $members = Member::all(array("user_id = ?" => $this->user->id));
             $session->set("members", $members);
+
+            $organization = Organization::first(array("id = ?" => $members[0]->organization_id));
+            $session->set("organization", $organization);
+            
             self::redirect("/manage");
         }
+    }
+
+    /**
+     * @before _secure
+     */
+    public function switchOrg($organization_id='') {
+        $session = Registry::get("session");
+        $members = $session->get("members");
+
+        foreach ($members as $member) {
+            if ($member->organization_id == $organization_id) {
+                $organization = Organization::first(array("id = ?" => $member->organization_id));
+                $session->set("organization", $organization);
+            }
+        }
+
+        self::redirect("/manage");
     }
     
     public function register() {

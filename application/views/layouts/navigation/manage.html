@@ -6,13 +6,23 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/admin">
+        <a class="navbar-brand" href="/manage">
             <i class="fa fa-cloud fa-lg"></i> CloudStuffs
         </a>
     </div>
     <!-- /.navbar-header -->
 
     <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-bank fa-fw"></i> {echo $organization->name} 
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+            {foreach $mem in $members}
+                <li><a href="/auth/switchOrg/{$mem->organization_id}">Organization {$mem->organization_id}</a></li>
+            {/foreach}
+            </ul>
+        </li>
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fa fa-user fa-fw"></i> {echo $user->name}  <i class="fa fa-caret-down"></i>
