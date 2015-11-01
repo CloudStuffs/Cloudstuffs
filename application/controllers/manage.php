@@ -44,6 +44,25 @@ class Manage extends Admin {
         $this->seo(array("title" => "Dashboard","view" => $this->getLayoutView()));
         $view = $this->getActionView();
 
+        if (RequestMethods::post("action") == "addMember") {
+            $user = User::first(array("email = ?" => RequestMethods::post("email")));
+            if(!$user) {
+                $user = new User(array(
+                    "name" => "",
+                    "email" => RequestMethods::post("email")
+                ));
+                $user->save();
+            }
+
+            $member = new Member(array(
+                "user_id" => $user->id,
+                "organization_id" => $this->organization->id,
+                "designation" => RequestMethods::post("designation", "member")
+            ));
+            $member->save();
+            $view->set("success", true);
+        }
+
         $members = Member::all(array("organization_id = ?" => $this->organization->id));
         $view->set("members", $members);
     }
