@@ -48,9 +48,9 @@ class Auth extends Controller {
                     break;
                 }
             }
-
             $session->set("organization", $organization);
             
+            Bill::convertCurrency("USD", $this->user->currency);
             self::redirect("/manage");
         }
     }
@@ -89,6 +89,7 @@ class Auth extends Controller {
                     "email" => RequestMethods::post("email"),
                     "password" => sha1(RequestMethods::post("password")),
                     "phone" => RequestMethods::post("phone"),
+                    "currency" => RequestMethods::post("currency", "USD"),
                     "admin" => 0,
                     "live" => 1
                 ));
