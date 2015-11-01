@@ -8,8 +8,8 @@
                         <tr>
                             <th>Id</th>
                             <th>Title</th>
-                            <th>Amount</th>
-                            <th>Bill Date</th>
+                            <th>Period</th>
+                            <th>Started</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -20,10 +20,11 @@
                         <tr>
                             <td>{echo $item->id}</td>
                             <td><a href="/project/details/{$project->id}" target="_blank">{echo $item->title}</a></td>
-                            <td>${echo $bill->amount}</td>
-                            <td>{echo $bill->created}</td>
+                            <td>{echo $project->period} Days</td>
+                            <td>{echo $project->created}</td>
                             <td>
-                                <a href="/content/edit/{$content->id}" class="btn btn-primary btn-xs"><i class="fa fa-download"></i> Invoice</a>
+                                <a href="/finance/payments/{$project->bill_id}" class="btn btn-primary btn-xs"><i class="fa fa-money"></i> Payments</a>
+                                <a href="/finance/invoice/{$project->bill_id}" class="btn btn-info btn-xs"><i class="fa fa-download"></i> Invoice</a>
                             </td>
                         </tr>
                         {/foreach}
