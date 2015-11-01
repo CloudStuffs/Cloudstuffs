@@ -10,6 +10,7 @@
                             <th>Title</th>
                             <th>Period</th>
                             <th>Started</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -22,6 +23,14 @@
                             <td><a href="/project/details/{$project->id}" target="_blank">{echo $item->title}</a></td>
                             <td>{echo $project->period} Days</td>
                             <td>{echo $project->created}</td>
+                            <td>
+                                {if($project->live)}
+                                    <span class="label label-success">Active</span>
+                                {/if}
+                                {else}
+                                    <span class="label label-warning">Inactive</span>
+                                {/else}
+                            </td>
                             <td>
                                 <a href="/finance/payments/{$project->bill_id}" class="btn btn-primary btn-xs"><i class="fa fa-money"></i> Payments</a>
                                 <a href="/finance/invoice/{$project->bill_id}" class="btn btn-info btn-xs"><i class="fa fa-download"></i> Invoice</a>

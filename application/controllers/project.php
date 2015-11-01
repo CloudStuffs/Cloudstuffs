@@ -107,7 +107,7 @@ class Project extends Manage {
         $page = RequestMethods::get("page", 1);
         $limit = RequestMethods::get("limit", 10);
         $where = array("organization_id = ?" => $this->organization->id, "property = ?" => "item");
-    	$projects = Service::all($where, array("property_id", "bill_id", "id", "period", "created"), "created", "desc", $limit, $page);
+    	$projects = Service::all($where, array("property_id", "bill_id", "id", "period", "created", "live"), "created", "desc", $limit, $page);
         $count = Service::count($where);
 
         $view->set("projects", $projects);

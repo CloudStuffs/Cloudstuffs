@@ -39,7 +39,7 @@ class Finance extends Manage {
     	$this->seo(array("title" => "Payments","view" => $this->getLayoutView()));
         $view = $this->getActionView();
 
-        $payments = Payment::all(array("organization_id = ?" => $this->organization->id, "bill_id = ?" => $bill_id), array("property", "bill_id", "property_id"));
+        $payments = Payment::all(array("organization_id = ?" => $this->organization->id, "bill_id = ?" => $bill_id), array("amount", "ref_id", "mode", "bill_id", "created"));
         $view->set("payments", $payments);
     }
 
