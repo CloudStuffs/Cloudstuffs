@@ -1,0 +1,33 @@
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Payments</h1>
+            <div class="panel panel-default">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Mode</th>
+                            <th>Reference</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {foreach $payment in $payments}
+                        <tr>
+                            <td>{echo $payment->id}</td>
+                            <td>{echo $payment->created}</td>
+                            <td>${echo $payment->amount}</td>
+                            <td>{echo $payment->mode}</td>
+                            <td>{echo $payment->ref_id}</td>
+                        </tr>
+                        {/foreach}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+</div>

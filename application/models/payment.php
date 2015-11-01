@@ -38,4 +38,20 @@ class Payment extends Shared\Model {
      */
     protected $_amount;
 
+    /**
+     * @column
+     * @readwrite
+     * @type text
+     * @length 64
+     */
+    protected $_mode;
+
+    /**
+     * @column
+     * @readwrite
+     * @type text
+     * @length 64
+     */
+    protected $_ref_id;    
+
 }
