@@ -13,11 +13,11 @@
                 <div class="panel panel-default panel-body">
                     <div class="form-group">
                         <label>Item</label>
-                        {foreach $it in $items}
                         <select class="form-control" name="item_id">
+                        {foreach $it in $items}
                             <option value="{$it->id}">{$it->title}</option>
-                        </select>
                         {/foreach}
+                        </select>
                         <span class="help-block">New Item? <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#item_modal">Add Item</button> </span>
                     </div>
                     <hr>

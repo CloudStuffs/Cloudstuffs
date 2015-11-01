@@ -26,7 +26,7 @@ class Project extends Manage {
         $view = $this->getActionView();
 
         if (RequestMethods::post("action") == "item") {
-            $manager = Member::first(array("user_id = ?" => $this->user->id, "organization_id = ?" => $this->organization->id, "designation = ?" => "manager"));
+            $manager = Member::first(array("user_id = ?" => $this->user->id, "designation = ?" => "manager"));
             if ($manager) {
                 $item = new Item(array(
                     "user_id" => $this->user->id,
@@ -35,6 +35,8 @@ class Project extends Manage {
                     "category" => RequestMethods::post("category")
                 ));
                 $item->save();
+            } else{
+                die('Unauthorised, Contact your manager');
             }
 
             self::redirect("/project/item/".$item->id);
