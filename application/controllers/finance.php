@@ -53,6 +53,7 @@ class Finance extends Manage {
 
         $payments = Payment::all(array("organization_id = ?" => $this->organization->id, "bill_id = ?" => $bill_id), array("amount", "ref_id", "mode", "bill_id", "created"));
         $view->set("payments", $payments);
+        $view->set("manager", $this->manager);
     }
 
     /**

@@ -3,7 +3,12 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header text-center">Payments</h1>
+            {if($manager)}
             <p>The Record of Payments received for a particular project for <a href="/finance/bank">CloudStuff Bank Account</a>, <button data-toggle="modal" data-target="#addPayment" class="btn btn-success btn-xs">Add Payment</button> </p>
+            {/if}
+            {else}
+            <p>If the payment is not shown contact your Project manager</p>
+            {/else}
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <i class="fa fa-clock-o fa-fw"></i> Payments

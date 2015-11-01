@@ -18,6 +18,11 @@ class Manage extends Admin {
      * @readwrite
      */
     protected $_members;
+
+    /**
+     * @readwrite
+     */
+    protected $_manager;    
     
     /**
      * @before _secure, manageLayout
@@ -120,9 +125,11 @@ class Manage extends Admin {
         $session = Registry::get("session");
         $organization = $session->get("organization");
         $members = $session->get("members");
+        $manager = $session->get("manager");
 
         $this->_organization = $organization;
         $this->_members = $members;
+        $this->_manager = $manager;
 
         $this->getActionView()->set("organization", $organization);
         $this->getLayoutView()->set("organization", $organization);

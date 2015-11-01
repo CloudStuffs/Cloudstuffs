@@ -41,6 +41,14 @@ class Auth extends Controller {
             $session->set("members", $members);
 
             $organization = Organization::first(array("id = ?" => $members[0]->organization_id));
+            foreach ($members as $member) {
+                if($member->designation == "manager") {
+                    $organization = Organization::first(array("id = ?" => $member->organization_id));
+                    $session->set("manager", $member);
+                    break;
+                }
+            }
+
             $session->set("organization", $organization);
             
             self::redirect("/manage");
