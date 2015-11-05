@@ -5,24 +5,26 @@
             <div class="form-group">
                 <div class="input-group">
                     <label class="sr-only">Table</label>
-                    <select name="model" class="form-control" value="{$model}">
-                        <option>Select Model</option>
-                        <option value="account">Account</option>
-                        <option value="earning">Earning</option>
+                    <select name="model" class="form-control" value="{$model}" id="searchModel">
+                        <option value="bill">Bill</option>
+                        <option value="comment">Comment</option>
                         <option value="item">Item</option>
-                        <option value="link">Link</option>
-                        <option value="platform">Platform</option>
-                        <option value="rpm">RPM</option>
-                        <option value="social">Social</option>
-                        <option value="stat">Stat</option>
-                        <option value="user" selected="selected">Users</option>
+                        <option value="member">Member</option>
+                        <option value="organization">Organization</option>
+                        <option value="payment">Payment</option>
+                        <option value="service">Service</option>
+                        <option value="task">Task</option>
+                        <option value="ticket">Ticket</option>
+                        <option value="user">User</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-group">
                     <label class="sr-only">Field</label>
-                    <input type="text" style="width: 100px" name="key" class="form-control" placeholder="Field" value="{$property}" />
+                    <select name="key" class="form-control" value="{$property}" id="searchField">
+                        <option value="{$property}">{$property}</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
@@ -37,7 +39,7 @@
             <div class="form-group">
                 <div class="input-group">
                     <label class="sr-only">Keyword</label>
-                    <input type="text" style="width: 300px" name="value" class="form-control" placeholder="value..." value="{$val}" />
+                    <input type="text" style="width: 300px" id="searchKeyword" name="value" class="form-control" placeholder="value..." value="{$val}" />
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Search</button>
