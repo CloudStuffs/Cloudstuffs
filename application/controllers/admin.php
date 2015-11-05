@@ -17,24 +17,7 @@ class Admin extends Auth {
         $view = $this->getActionView();
         $now = strftime("%Y-%m-%d", strtotime('now'));
 
-        $users = User::count();
-        $items = Item::count();
-        $platforms = Platform::count();
-        $links = Link::count();
-
-        $earn = 0;
-        $earnings = Earning::all(array(), array("amount"));
-        foreach ($earnings as $earning) {
-            $earn += $earning->amount;
-        }
-
-        $view->set("now", $now);
-        $view->set("users", $users);
-        $view->set("items", $items);
-        $view->set("platforms", $platforms);
-        $view->set("links", $links);
-        $view->set("earn", $earn);
-    }
+        $view->set("now", $now);    }
 
     /**
      * Searchs for data and returns result from db
@@ -89,6 +72,14 @@ class Admin extends Auth {
                 $view->set("success", "No Results Found");
             }
         }
+    }
+
+    public function fields($model = "user") {
+        $this->noview();
+        $class = ucfirst($model);
+        $object = new $class;
+
+        echo json_encode($object->columns);
     }
 
     /**

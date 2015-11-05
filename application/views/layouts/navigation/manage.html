@@ -13,6 +13,9 @@
     <!-- /.navbar-header -->
 
     <ul class="nav navbar-top-links navbar-right">
+        {if($user->admin == "1")}
+        <li><a href="/admin"><i class="fa fa-user-secret"></i> Admin Panel</a></li>
+        {/if}
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fa fa-bank fa-fw"></i> {echo $organization->name} 
