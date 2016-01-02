@@ -147,29 +147,36 @@ namespace Framework {
                     if ($this->defaultExtension == "json") {
                         $obj = array();
                         $data = $view->data;
-                        if(!empty($data)){
+
+                        if ($data) {
                             foreach ($data as $keys => $values) {
-                                switch (gettype($values)){
+                                switch (gettype($values)) {
                                     case 'object':
-                                        if(get_class($values) == "stdClass"){
+                                        if (get_class($values) == "stdClass") {
                                             $obj[$keys] = $values;
                                         } else {
                                             $obj[$keys] = $values->getJsonData();
                                         }
                                         break;
                                     case 'array':
-                                        foreach ($values as $key => $value){
-                                            $obj[$keys][] = $value->getJsonData();
+                                        foreach ($values as $key => $value) {
+                                            if (gettype($value) == "object") {
+                                                if (get_class($value) == "stdClass") {
+                                                    $obj[$keys][] = $value;
+                                                } else {
+                                                    $obj[$keys][] = $value->getJsonData();
+                                                }
+                                            } else{
+                                                $obj[$keys] = $values;
+                                            }
                                         }
                                         break;
                                     default :
                                         $obj[$keys] = $values;
                                         break;
-                                        
                                 }
                             }
                         }
-                        
                         echo json_encode($obj, JSON_PRETTY_PRINT);
                     }
 

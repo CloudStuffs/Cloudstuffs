@@ -24,11 +24,24 @@ class Home extends Controller {
         $this->getLayoutView()->set("seo", Framework\Registry::get("seo"));
     }
 
-    public function contact() {
+        public function contact() {
         $this->seo(array(
-            "title" => "Contact Us",
+            "title" => "Contact Us CloudStufft",
+            "keywords" => "Ask any question, mail us, contact us",
+            "description" => "Any question you have about our service or you have any technical issue just contact us.",
             "view" => $this->getLayoutView()
         ));
+        $view = $this->getActionView();
+        if (RequestMethods::post("submit") == "Send") {
+            $this->notify(array(
+                "template" => "message",
+                "subject" => "You have received a message",
+                "cmessage" => RequestMethods::post("message"),
+                "sender" => RequestMethods::post("name"). ", " . RequestMethods::post("email"),
+                "user" => User::first(array("id = ?" => 1))
+            ));
+            $view->set("message", "Your message has been received, we will contact you within 24 hours.");
+        }
     }
 
     public function support() {
@@ -51,5 +64,12 @@ class Home extends Controller {
             "view" => $this->getLayoutView()
         ));
     }
+    public function projects() {
+        $this->seo(array(
+            "title" => "Our Projects",
+            "view" => $this->getLayoutView()
+        ));
+    }
+
 
 }
