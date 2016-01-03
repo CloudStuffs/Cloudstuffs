@@ -32,4 +32,35 @@ class Hosting extends Manage {
             "view" => $this->getLayoutView()
         ));
     }
+    public function wordpress() {
+        $this->seo(array(
+            "title" => "Wordpress Hosting",
+            "view" => $this->getLayoutView()
+        ));
+    }
+    public function drupal() {
+        $this->seo(array(
+            "title" => "Drupal Hosting",
+            "view" => $this->getLayoutView()
+        ));
+    }
+    public function magento() {
+        $this->seo(array(
+            "title" => "Magento Hosting",
+            "view" => $this->getLayoutView()
+        ));
+    }
+    public function joomla() {
+        $this->seo(array(
+            "title" => "Magento Hosting",
+            "view" => $this->getLayoutView()
+        ));
+    }
+
+    public function cloud_vps() {
+        $this->seo(array(
+            "title" => "Magento Hosting",
+            "view" => $this->getLayoutView()
+        ));
+    }
 }
