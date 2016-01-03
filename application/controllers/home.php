@@ -71,5 +71,17 @@ class Home extends Controller {
         ));
     }
 
+    public function privacy_policy() {
+        $this->seo(array(
+            "title" => "Our Privacy Policy",
+            "view" => $this->getLayoutView()
+        ));
+    }
 
+    public function terms_conditions() {
+        $this->seo(array(
+            "title" => "Our Projects",
+            "view" => $this->getLayoutView()
+        ));
+    }
 }

@@ -32,6 +32,16 @@ $routes = array(
         "pattern" => "projects",
         "controller" => "home",
         "action" => "projects"
+    ),
+    array(
+        "pattern" => "privacy-policy",
+        "controller" => "home",
+        "action" => "privacy_policy"
+    ),
+    array(
+        "pattern" => "terms&conditions",
+        "controller" => "home",
+        "action" => "terms_conditions"
     )
 );
 
