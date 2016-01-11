@@ -6,16 +6,9 @@
                 <div class="input-group">
                     <label class="sr-only">Table</label>
                     <select name="model" class="form-control" value="{$model}" id="searchModel">
-                        <option value="bill">Bill</option>
-                        <option value="comment">Comment</option>
-                        <option value="item">Item</option>
-                        <option value="member">Member</option>
-                        <option value="organization">Organization</option>
-                        <option value="payment">Payment</option>
-                        <option value="service">Service</option>
-                        <option value="task">Task</option>
-                        <option value="ticket">Ticket</option>
-                        <option value="user">User</option>
+                        {foreach $m in $models}
+                        <option value="{$m}">{echo ucfirst($m)}</option>
+                        {/foreach}
                     </select>
                 </div>
             </div>
@@ -39,7 +32,7 @@
             <div class="form-group">
                 <div class="input-group">
                     <label class="sr-only">Keyword</label>
-                    <input type="text" style="width: 300px" id="searchKeyword" name="value" class="form-control" placeholder="value..." value="{$val}" />
+                    <input type="text" style="width: 300px" name="value" class="form-control" placeholder="value..." value="{$val}" />
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Search</button>
@@ -74,16 +67,24 @@
                         {/foreach}
                         <td>
                             <a href="/admin/update/{$model}/{echo $item[id]}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Edit</a>
+                            <a href="/admin/delete/{$model}/{echo $item[id]}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
                         </td>
                         </tr>
                     {/foreach}
                 </tbody>
             </table>
-            <div class="text-center">
-                {if($count > 10)}
-                <a href="{echo URL}&page={echo $page+1}" class="btn btn-primary">Load More</a>
-                {/if}
-            </div>
         </div>
+    
+        <div class="text-center">
+            <ul class="pager">
+                {if($page != 1)}
+                <li><a href="{echo Shared\Markup::pagination($page - 1)}">Previous</a></li>
+                {/if}
+                {if($page < $count/$limit)}
+                <li><a href="{echo Shared\Markup::pagination($page + 1)}">Next</a></li>
+                {/if}
+            </ul>
+        </div>
+
     </div>
 </div>

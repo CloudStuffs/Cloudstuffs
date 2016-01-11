@@ -5,38 +5,35 @@
                 <h1 class="page-header">Dashboard</h1>
                 <div class="row">
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 col-md-4">
                         <div class="list-group">
                             <a class="list-group-item active text-center">
-                                <i class="fa fa-line-chart"></i> Stats
+                                <i class="fa fa-line-chart"></i> Data
                             </a>
-                            
+                            <a href="admin/search?model=user&key=live&sign=equal&value=1" class="list-group-item"><i class="fa fa-users fa-2x"></i>  Clients <span class="badge">{echo Member::count(array("designation = ?" => "pm"))}</span></a>
+                            <a href="/content/all" class="list-group-item"><i class="fa fa-file fa-2x"></i> Products <span class="badge">{echo Item::count()}</span></a>
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 col-md-4">
                         <div class="list-group">
                             <a class="list-group-item active text-center">
-                                <i class="fa fa-link"></i> Quick Links
+                                <i class="fa fa-pie-chart"></i> Total Statistics
                             </a>
-                            
+
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 col-md-4">
                         <div class="list-group">
                             <a class="list-group-item active text-center">
-                                <i class="fa fa-cloud"></i> CloudStuffs
+                                <i class="fa fa-pie-chart"></i> Monitor
                             </a>
-                            <a href="https://www.youtube.com/channel/UCLc7UxaQmWQoREzxjfNENNg" target="_blank" class="list-group-item"><i class="fa fa-youtube-square fa-2x"></i>  Youtube Channel</a>
-                            <a href="https://plus.google.com/+Swiftinternindia" target="_blank" class="list-group-item"><i class="fa fa-google-plus-square fa-2x"></i>  Google+ Page</a>
-                            <a href="https://www.facebook.com/swiftintern" target="_blank" class="list-group-item"><i class="fa fa-facebook-square fa-2x"></i>  Facebook Page</a>
-                            <a href="https://twitter.com/swiftintern" target="_blank" class="list-group-item"><i class="fa fa-twitter-square fa-2x"></i>  Twitter Account</a>
-                            <a href="https://www.linkedin.com/company/swiftintern-com" target="_blank" class="list-group-item"><i class="fa fa-linkedin-square fa-2x"></i>  Linkedin Company Page</a>
                         </div>
-                    </div>
+                    </div>                    
 
                 </div>
+
             </div>
         </div>
     </div>

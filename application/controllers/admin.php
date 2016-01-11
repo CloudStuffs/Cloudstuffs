@@ -6,39 +6,44 @@
  * @author Faizan Ayubi
  */
 use Framework\RequestMethods as RequestMethods;
+use Framework\Registry as Registry;
 
 class Admin extends Auth {
 
     /**
-     * @before _secure, changeLayout
+     * @before _secure, changeLayout, _admin
      */
     public function index() {
         $this->seo(array("title" => "Dashboard", "view" => $this->getLayoutView()));
         $view = $this->getActionView();
         $now = strftime("%Y-%m-%d", strtotime('now'));
-
-        $view->set("now", $now);    }
+        
+        $view->set("now", $now);
+    }
 
     /**
      * Searchs for data and returns result from db
      * @param type $model the data model
      * @param type $property the property of modal
      * @param type $val the value of property
-     * @before _secure, changeLayout
+     * @before _secure, changeLayout, _admin
      */
-    public function search($model = NULL, $property = NULL, $val = 0, $page = 1) {
+    public function search($model = NULL, $property = NULL, $val = 0, $page = 1, $limit = 10) {
         $this->seo(array("title" => "Search", "keywords" => "admin", "description" => "admin", "view" => $this->getLayoutView()));
         $view = $this->getActionView();
         $model = RequestMethods::get("model", $model);
         $property = RequestMethods::get("key", $property);
         $val = RequestMethods::get("value", $val);
         $page = RequestMethods::get("page", $page);
+        $limit = RequestMethods::get("limit", $limit);
         $sign = RequestMethods::get("sign", "equal");
 
         $view->set("items", array());
         $view->set("values", array());
         $view->set("model", $model);
+        $view->set("models", Shared\Markup::models());
         $view->set("page", $page);
+        $view->set("limit", $limit);
         $view->set("property", $property);
         $view->set("val", $val);
         $view->set("sign", $sign);
@@ -50,7 +55,7 @@ class Admin extends Auth {
                 $where = array("{$property} = ?" => $val);
             }
 
-            $objects = $model::all($where, array("*"), "created", "desc", 10, $page);
+            $objects = $model::all($where, array("*"), "created", "desc", $limit, $page);
             $count = $model::count($where);
             $i = 0;
             if ($objects) {
@@ -77,7 +82,7 @@ class Admin extends Auth {
     /**
      * Shows any data info
      * 
-     * @before _secure, changeLayout
+     * @before _secure, changeLayout, _admin
      * @param type $model the model to which shhow info
      * @param type $id the id of object model
      */
@@ -113,7 +118,7 @@ class Admin extends Auth {
     /**
      * Updates any data provide with model and id
      * 
-     * @before _secure, changeLayout
+     * @before _secure, changeLayout, _admin
      * @param type $model the model object to be updated
      * @param type $id the id of object
      */
@@ -147,7 +152,7 @@ class Admin extends Auth {
     /**
      * Edits the Value and redirects user back to Referer
      * 
-     * @before _secure, changeLayout
+     * @before _secure, changeLayout, _admin
      * @param type $model
      * @param type $id
      * @param type $property
@@ -167,7 +172,25 @@ class Admin extends Auth {
     }
 
     /**
-     * @before _secure, changeLayout
+     * Updates any data provide with model and id
+     * 
+     * @before _secure, changeLayout, _admin
+     * @param type $model the model object to be updated
+     * @param type $id the id of object
+     */
+    public function delete($model = NULL, $id = NULL) {
+        $view = $this->getActionView();
+        $this->JSONview();
+        
+        $object = $model::first(array("id = ?" => $id));
+        $object->delete();
+        $view->set("deleted", true);
+        
+        self::redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    /**
+     * @before _secure, changeLayout, _admin
      */
     public function dataAnalysis() {
         $this->seo(array("title" => "Data Analysis", "keywords" => "admin", "description" => "admin", "view" => $this->getLayoutView()));
@@ -185,9 +208,13 @@ class Admin extends Auth {
             }
             $view->set("data", \Framework\ArrayMethods::toObject($obj));
         }
+        $view->set("models", Shared\Markup::models());
     }
 
-    public function sync($model) {
+    /**
+     * @before _secure, _admin
+     */
+    protected function sync($model) {
         $this->noview();
         $db = Framework\Registry::get("database");
         $db->sync(new $model);
@@ -208,5 +235,4 @@ class Admin extends Auth {
         $this->defaultLayout = "layouts/admin";
         $this->setLayout();
     }
-
 }
