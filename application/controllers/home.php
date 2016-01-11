@@ -80,7 +80,7 @@ class Home extends Controller {
 
     public function terms_conditions() {
         $this->seo(array(
-            "title" => "Our Projects",
+            "title" => "Terms and Conditions",
             "view" => $this->getLayoutView()
         ));
     }

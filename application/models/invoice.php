@@ -1,19 +1,13 @@
 <?php
 
 /**
- * The service Model
+ * The invoice Model
  *
  * @author Faizan Ayubi
  */
-class Service extends Shared\Model {
+use Framework\Registry as Registry;
 
-    /**
-     * @column
-     * @readwrite
-     * @type integer
-     * @index
-     */
-    protected $_user_id;
+class Invoice extends Shared\Model {
 
     /**
      * @column
@@ -27,29 +21,29 @@ class Service extends Shared\Model {
      * @column
      * @readwrite
      * @type integer
+     * @index
      */
-    protected $_property_id;
+    protected $_item_id;
 
     /**
      * @column
      * @readwrite
-     * @type text
-     * @length 100
+     * @type integer
+     * @index
      */
-    protected $_property;
+    protected $_bill_id;
 
     /**
      * @column
      * @readwrite
      * @type integer
      */
-    protected $_period;
+    protected $_amount;
 
     /**
      * @column
      * @readwrite
      * @type integer
      */
-    protected $_timeline;
-
+    protected $_mode;
 }

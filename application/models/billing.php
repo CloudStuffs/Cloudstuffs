@@ -1,11 +1,13 @@
 <?php
 
 /**
- * The task Model
+ * The billing Model
  *
  * @author Faizan Ayubi
  */
-class Task extends Shared\Model {
+use Framework\Registry as Registry;
+
+class Billing extends Shared\Model {
 
     /**
      * @column
@@ -13,7 +15,7 @@ class Task extends Shared\Model {
      * @type integer
      * @index
      */
-    protected $_user_id;
+    protected $_organization_id;
 
     /**
      * @column
@@ -27,30 +29,28 @@ class Task extends Shared\Model {
      * @column
      * @readwrite
      * @type integer
-     * @index
      */
-    protected $_organization_id;
+    protected $_amount;
 
     /**
      * @column
      * @readwrite
-     * @type text
+     * @type integer
      */
-    protected $_description;
+    protected $_period;
 
     /**
      * @column
      * @readwrite
-     * @type text
-     * @length 32
+     * @type date
      */
-    protected $_status;
+    protected $_start;
 
     /**
      * @column
      * @readwrite
-     * @type datetime
+     * @type date
      */
-    protected $_deadline;
+    protected $_end;
 
 }

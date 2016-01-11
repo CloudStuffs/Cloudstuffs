@@ -11,12 +11,7 @@ use Framework\Registry as Registry;
 class Auth extends Controller {
     
     public function login() {
-        $this->defaultLayout = "layouts/blank";
-        $this->setLayout();
-        $this->seo(array(
-            "title" => "Login",
-            "view" => $this->getLayoutView()
-        ));
+        $this->seo(array("title" => "Login", "view" => $this->getLayoutView()));
         $view = $this->getActionView();
         
         if (RequestMethods::post("action") == "login") {
@@ -73,12 +68,7 @@ class Auth extends Controller {
     }
     
     public function register() {
-        $this->defaultLayout = "layouts/blank";
-        $this->setLayout();
-        $this->seo(array(
-            "title" => "Register",
-            "view" => $this->getLayoutView()
-        ));
+        $this->seo(array("title" => "Register", "view" => $this->getLayoutView()));
         $view = $this->getActionView();
         
         if (RequestMethods::post("action") == "register") {
