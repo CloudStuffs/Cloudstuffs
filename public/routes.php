@@ -19,14 +19,9 @@ $routes = array(
         "action" => "login"
     ),
     array(
-        "pattern" => "affiliates",
+        "pattern" => "adnetwork",
         "controller" => "home",
-        "action" => "affiliates"
-    ),
-    array(
-        "pattern" => "support",
-        "controller" => "home",
-        "action" => "support"
+        "action" => "adnetwork"
     ),
     array(
         "pattern" => "projects",

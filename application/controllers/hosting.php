@@ -8,7 +8,7 @@
 use Framework\Registry as Registry;
 use Framework\RequestMethods as RequestMethods;
 
-class Hosting extends Manage {
+class Hosting extends Home {
     
     public function features() {
     	$this->seo(array(

@@ -58,9 +58,9 @@ class Home extends Controller {
         ));
     }
 
-    public function affiliates() {
+    public function adnetwork() {
         $this->seo(array(
-            "title" => "Why Affiliate?",
+            "title" => "Buy AdNetwork DSP",
             "view" => $this->getLayoutView()
         ));
     }
