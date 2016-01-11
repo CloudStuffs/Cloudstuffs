@@ -28,7 +28,8 @@ class Billing extends Shared\Model {
     /**
      * @column
      * @readwrite
-     * @type integer
+     * @type decimal
+     * @length 10,2
      */
     protected $_amount;
 

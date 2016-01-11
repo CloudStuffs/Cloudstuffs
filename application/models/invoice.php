@@ -31,12 +31,13 @@ class Invoice extends Shared\Model {
      * @type integer
      * @index
      */
-    protected $_bill_id;
+    protected $_billing_id;
 
     /**
      * @column
      * @readwrite
-     * @type integer
+     * @type decimal
+     * @length 10,2
      */
     protected $_amount;
 

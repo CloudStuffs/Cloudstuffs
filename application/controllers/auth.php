@@ -79,7 +79,7 @@ class Auth extends Controller {
                     "email" => RequestMethods::post("email"),
                     "password" => sha1(RequestMethods::post("password")),
                     "phone" => RequestMethods::post("phone"),
-                    "currency" => RequestMethods::post("currency", "USD"),
+                    "currency" => RequestMethods::post("currency", "INR"),
                     "admin" => 0,
                     "live" => 1
                 ));
@@ -112,7 +112,7 @@ class Auth extends Controller {
         }
 
         if ($this->user) {
-            self::redirect("/client");
+            self::redirect("/manage");
         }
     }
     
