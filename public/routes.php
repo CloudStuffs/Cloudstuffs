@@ -37,6 +37,41 @@ $routes = array(
         "pattern" => "terms&conditions",
         "controller" => "home",
         "action" => "terms_conditions"
+    ),
+    array(
+        "pattern" => "hosting/cloud_vps",
+        "controller" => "home",
+        "action" => "cloud_vps"
+    ),
+    array(
+        "pattern" => "hosting/features",
+        "controller" => "home",
+        "action" => "features"
+    ),
+    array(
+        "pattern" => "hosting/cPanel",
+        "controller" => "home",
+        "action" => "cPanel"
+    ),
+    array(
+        "pattern" => "hosting/shared",
+        "controller" => "home",
+        "action" => "shared"
+    ),
+    array(
+        "pattern" => "hosting/cloud_vps",
+        "controller" => "home",
+        "action" => "cloud_vps"
+    ),
+    array(
+        "pattern" => "hosting/dedicated",
+        "controller" => "home",
+        "action" => "dedicated"
+    ),
+    array(
+        "pattern" => "hosting/open_source",
+        "controller" => "home",
+        "action" => "open_source"
     )
 );
 
