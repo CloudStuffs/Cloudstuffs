@@ -64,6 +64,56 @@ namespace Shared {
             return $this;
         }
 
+        protected function log($message = "") {
+            $logfile = APP_PATH . "/logs/" . date("Y-m-d") . ".txt";
+            $new = file_exists($logfile) ? false : true;
+            if ($handle = fopen($logfile, 'a')) {
+                $timestamp = strftime("%Y-%m-%d %H:%M:%S", time() + 1800);
+                $content = "[{$timestamp}]{$message}\n";
+                fwrite($handle, $content);
+                fclose($handle);
+                if ($new) {
+                    chmod($logfile, 0755);
+                }
+            } else {
+                echo "Could not open log file for writing";
+            }
+        }
+        
+        public function logout() {
+            $this->setUser(false);
+            self::redirect("/home");
+        }
+        
+        public function noview() {
+            $this->willRenderLayoutView = false;
+            $this->willRenderActionView = false;
+        }
+
+        public function JSONview() {
+            $this->willRenderLayoutView = false;
+            $this->defaultExtension = "json";
+        }
+        
+        /**
+         * The method checks whether a file has been uploaded. If it has, the method attempts to move the file to a permanent location.
+         * @param string $name
+         * @param string $type files or images
+         */
+        protected function _upload($name, $type = "files") {
+            if (isset($_FILES[$name])) {
+                $file = $_FILES[$name];
+                $path = APP_PATH . "/public/assets/uploads/{$type}/";
+                $extension = pathinfo($file["name"], PATHINFO_EXTENSION);
+                $filename = uniqid() . ".{$extension}";
+                if (move_uploaded_file($file["tmp_name"], $path . $filename)) {
+                    return $filename;
+                } else {
+                    return FALSE;
+                }
+            }
+        }
+
         public function __construct($options = array()) {
             parent::__construct($options);
 
