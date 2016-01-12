@@ -1,28 +1,24 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header text-center">Payments</h1>
+            <h1 class="page-header text-center">Tickets</h1>
             <div class="panel panel-default">
-                {if($payments)}
+                {if($tickets)}
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>Id</th>
                                 <th>Created</th>
-                                <th>Amount</th>
-                                <th>Mode</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                        {foreach $invoice in $invoices}
+                        {foreach $ticket in $tickets}
                             <tr>
-                                <td>{echo $invoice->id}</td>
-                                <td>{echo $invoice->created}</td>
-                                <td>${echo $invoice->amount}</td>
-                                <td>{echo $invoice->mode}</td>
+                                <td>{echo $ticket->id}</td>
+                                <td>{echo $ticket->created}</td>
                                 <td>
-                                    <a href="/finance/invoice/{$invoice->id}" class="btn btn-info btn-xs"><i class="fa fa-download"></i> Invoices</a>
+                                    <a href="#" class="btn btn-info btn-xs"><i class="fa fa-close"></i> Close</a>
                                 </td>
                             </tr>
                         {/foreach}
@@ -30,7 +26,7 @@
                     </table>
                 {/if}
                 {else}
-                <p class="text-center">No Payments Till Now.</p>
+                <p class="text-center">No Tickets Found, You can create ticket from billings</p>
                 {/else}
             </div>
 
