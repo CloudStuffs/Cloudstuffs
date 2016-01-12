@@ -30,41 +30,21 @@ class Auth extends Controller {
     }
 
     protected function session() {
-        $members = Member::all(array("user_id = ?" => $this->user->id));
-        if($members) {
-            $session = Registry::get("session");
-            $session->set("members", $members);
+        if ($user->admin) {
+            self::redirect("/admin");
+        } else {
+            $member = Member::first(array("user_id = ?" => $this->user->id));
+            if($member) {
+                $session = Registry::get("session");
+                $session->set("member", $member);
 
-            $organization = Organization::first(array("id = ?" => $members[0]->organization_id));
-            foreach ($members as $member) {
-                if($member->designation == "manager") {
-                    $organization = Organization::first(array("id = ?" => $member->organization_id));
-                    $session->set("manager", $member);
-                    break;
-                }
-            }
-            $session->set("organization", $organization);
-            
-            Bill::convertCurrency("USD", $this->user->currency);
-            self::redirect("/manage");
-        }
-    }
-
-    /**
-     * @before _secure
-     */
-    public function switchOrg($organization_id='') {
-        $session = Registry::get("session");
-        $members = $session->get("members");
-
-        foreach ($members as $member) {
-            if ($member->organization_id == $organization_id) {
                 $organization = Organization::first(array("id = ?" => $member->organization_id));
                 $session->set("organization", $organization);
+                
+                //Bill::convertCurrency("USD", $this->user->currency);
+                self::redirect("/manage");
             }
         }
-
-        self::redirect("/manage");
     }
     
     public function register() {
@@ -105,9 +85,9 @@ class Auth extends Controller {
                     "designation" => "director"
                 ));
                 $member->save();
-                $this->session();
+                $session->set("member", $member);
             } else {
-                $view->set("message", 'Username exists, login from <a href="/admin/login">here</a>');
+                $view->set("message", 'User exists, login from <a href="/admin/login">here</a>');
             }
         }
 
