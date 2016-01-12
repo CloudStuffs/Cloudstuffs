@@ -16,8 +16,9 @@ class Manage extends Admin {
     public function index() {
         $this->seo(array("title" => "Dashboard", "view" => $this->getLayoutView()));
         $view = $this->getActionView();
-        $now = strftime("%Y-%m-%d", strtotime('now'));
+        $m = Member::first(array("organization_id = ?" => $this->organization->id, "designation = ?" => "CloudStuff"), array("user_id"));
+        $manager = User::first(array("id = ?" => $m->user_id), array("phone", "name", "email"));
         
-        $view->set("now", $now);
+        $view->set("manager", $manager);
     }
 }

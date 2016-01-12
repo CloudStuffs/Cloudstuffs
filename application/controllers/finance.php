@@ -9,6 +9,24 @@ use Framework\Registry as Registry;
 use Framework\RequestMethods as RequestMethods;
 
 class Finance extends Manage {
+
+    /**
+     * @before _secure, changeLayout
+     */
+    public function billing() {
+        $this->seo(array("title" => "Items Billing", "view" => $this->getLayoutView()));
+        $view = $this->getActionView();
+
+        $page = RequestMethods::get("page", 1);
+        $limit = RequestMethods::get("limit", 10);
+        $billings = Billing::all(array("organization_id = ?" => $this->organization->id), array("item_id", "amount", "period", "start", "end", "created"), "created", "desc", $limit, $page);
+        $count = Billing::count(array("organization_id = ?" => $this->organization->id));
+        
+        $view->set("billings", $billings);
+        $view->set("page", $page);
+        $view->set("limit", $limit);
+        $view->set("count", $count);
+    }
     
     /**
      * @before _secure, manageLayout

@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/admin">
-            <i class="fa fa-user-secret fa-lg"></i> Admin Panel
+            <i class="fa fa-cloud fa-lg"></i> CloudStuff
         </a>
     </div>
     <!-- /.navbar-header -->
@@ -18,7 +18,7 @@
                 <i class="fa fa-user fa-fw"></i> {echo $user->name}  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="/admin"><i class="fa fa-gear fa-fw"></i> Dashboard</a></li>
+                <li><a href="/manage"><i class="fa fa-gear fa-fw"></i> Dashboard</a></li>
                 <li><a href="/"><i class="fa fa-home fa-fw"></i> Home</a></li>
                 <li class="divider"></li>
                 <li><a href="/auth/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
@@ -30,17 +30,18 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="side-menu">
-            <li><a href="/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+            {if($user->admin)}
+            <li><a href="/admin"><i class="fa fa-user-secret fa-fw"></i> Admin Dashboard</a></li>
+            <li><a href="/manage"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
             <li><a href="/admin/search"><i class="fa fa-search fa-fw"></i> Search</a></li>
             <li><a href="/admin/dataAnalysis"><i class="fa fa-area-chart fa-fw"></i> Data Analysis</a></li>
-            <li>
-                <a href="#"><i class="fa fa-money fa-fw"></i> Earnings<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li><a href="/finance/add">Add</a></li>
-                    <li><a href="/finance">Records</a></li>
-                </ul>
-            </li>
-            </li>
+            {/if}
+            {else}
+            <li><a href="/manage"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+            {/else}
+            <li><a href="/finance/billing"><i class="fa fa-archive fa-fw"></i> Billing</a></li>
+            <li><a href="/finance/payments"><i class="fa fa-credit-card-alt fa-fw"></i> Payments</a></li>
+            <li><a href="/manage/tickets"><i class="fa fa-tags fa-fw"></i> Tickets</a></li>
         </ul>
     </div>
 </nav>
