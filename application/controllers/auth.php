@@ -30,21 +30,17 @@ class Auth extends Controller {
     }
 
     protected function session() {
-        if ($user->admin) {
-            self::redirect("/admin");
-        } else {
-            $member = Member::first(array("user_id = ?" => $this->user->id));
-            if($member) {
-                $session = Registry::get("session");
-                $session->set("member", $member);
+        $member = Member::first(array("user_id = ?" => $this->user->id));
+        if($member) {
+            $session = Registry::get("session");
+            $session->set("member", $member);
 
-                $organization = Organization::first(array("id = ?" => $member->organization_id));
-                $session->set("organization", $organization);
-                
-                //Bill::convertCurrency("USD", $this->user->currency);
-                self::redirect("/manage");
-            }
+            $organization = Organization::first(array("id = ?" => $member->organization_id));
+            $session->set("organization", $organization);
+            
+            //Bill::convertCurrency("USD", $this->user->currency);
         }
+        self::redirect("/manage");
     }
     
     public function register() {
@@ -70,8 +66,6 @@ class Auth extends Controller {
                     "name" => RequestMethods::post("organization"),
                     "details" => RequestMethods::post("details", ""),
                     "website" => RequestMethods::post("website", ""),
-                    "email" => RequestMethods::post("email", ""),
-                    "phone" => RequestMethods::post("phone", ""),
                     "image" => ""
                 ));
                 $organization->save();
@@ -95,5 +89,5 @@ class Auth extends Controller {
             self::redirect("/manage");
         }
     }
-    
+
 }

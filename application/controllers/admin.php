@@ -11,6 +11,39 @@ use Framework\Registry as Registry;
 class Admin extends Auth {
 
     /**
+     * @readwrite
+     */
+    protected $_organization;
+
+    /**
+     * @readwrite
+     */
+    protected $_member;
+
+    public function render() {
+        if ($this->organization) {
+            if ($this->actionView) {
+                $this->actionView->set("organization", $this->organization);
+            }
+
+            if ($this->layoutView) {
+                $this->layoutView->set("organization", $this->organization);
+            }
+        }
+
+        if ($this->member) {
+            if ($this->actionView) {
+                $this->actionView->set("member", $this->member);
+            }
+
+            if ($this->layoutView) {
+                $this->layoutView->set("member", $this->member);
+            }
+        }
+        parent::render();
+    }
+
+    /**
      * @before _secure, changeLayout, _admin
      */
     public function index() {
@@ -229,6 +262,9 @@ class Admin extends Auth {
     }
 
     public function changeLayout() {
+        $this->organization = Registry::get("session")->get("organization");
+        $this->member = Registry::get("session")->get("member");
+
         $this->defaultLayout = "layouts/admin";
         $this->setLayout();
     }
