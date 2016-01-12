@@ -42,6 +42,16 @@ class Auth extends Controller {
         }
         self::redirect("/manage");
     }
+
+    public function change($organization_id) {
+        $this->noview();
+        $session = Registry::get("session");
+
+        $organization = Organization::first(array("id = ?" => $organization_id));
+        $session->set("organization", $organization);
+
+        self::redirect("/manage");
+    }
     
     public function register() {
         $this->seo(array("title" => "Register", "view" => $this->getLayoutView()));

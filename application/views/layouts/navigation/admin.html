@@ -13,6 +13,7 @@
     <!-- /.navbar-header -->
 
     <ul class="nav navbar-top-links navbar-right">
+        <li>{$organization->name}</li>
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="fa fa-user fa-fw"></i> {echo $user->name}  <i class="fa fa-caret-down"></i>
@@ -31,10 +32,13 @@
     <div class="sidebar-collapse">
         <ul class="nav" id="side-menu">
             {if($user->admin)}
+            <li class="text-center"><small>Admin</small></li>
             <li><a href="/admin"><i class="fa fa-user-secret fa-fw"></i> Admin Dashboard</a></li>
             <li><a href="/manage"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
             <li><a href="/admin/search"><i class="fa fa-search fa-fw"></i> Search</a></li>
             <li><a href="/admin/dataAnalysis"><i class="fa fa-area-chart fa-fw"></i> Data Analysis</a></li>
+            <li><a href="/manage/organizations"><i class="fa fa-bank fa-fw"></i> Organizations</a></li>
+            <li class="text-center"><small>Client</small></li>
             {/if}
             {else}
             <li><a href="/manage"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
