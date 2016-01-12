@@ -21,4 +21,17 @@ class Manage extends Admin {
         
         $view->set("manager", $manager);
     }
+
+    /**
+     * @before _secure, changeLayout
+     */
+    public function subscribe($organization_id) {
+        $this->seo(array("title" => "Dashboard", "view" => $this->getLayoutView()));
+        $view = $this->getActionView();
+
+        $items = Item::all(array(), array("title", "details"));
+        
+        $view->set("items", $items);
+    }
+
 }

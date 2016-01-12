@@ -33,12 +33,4 @@ class Item extends Shared\Model {
      */
     protected $_details;
 
-    /**
-     * @column
-     * @readwrite
-     * @type text
-     * @length 128
-     */
-    protected $_category;
-
 }
