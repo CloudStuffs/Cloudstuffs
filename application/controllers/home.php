@@ -33,14 +33,20 @@ class Home extends Controller {
         ));
         $view = $this->getActionView();
         if (RequestMethods::post("submit") == "Send") {
-            $this->notify(array(
-                "template" => "message",
-                "subject" => "You have received a message",
-                "cmessage" => RequestMethods::post("message"),
-                "sender" => RequestMethods::post("name"). ", " . RequestMethods::post("email"),
-                "user" => User::first(array("id = ?" => 1))
-            ));
-            $view->set("message", "Your message has been received, we will contact you within 24 hours.");
+
+            $from = RequestMethods::post("name"). ",<" . RequestMethods::post("email").">";
+            $to = "faizan@cloudstuff.tech";
+            $subject = " Mail From Cloud stuff Page, :".RequestMethods::post("phone");
+            $message= RequestMethods::post("message");
+
+            $header = "From: ".$from."\r\n"; 
+            $header.= "MIME-Version: 1.0\r\n"; 
+            $header.= "Content-Type: text/plain; charset=utf-8\r\n"; 
+            $header.= "X-Priority: 1\r\n"; 
+
+            if(mail($to, $subject, $message, $header)){
+                $view->set("message", "Your message has been received, we will contact you within 24 hours.");
+            }
         }
     }
 
