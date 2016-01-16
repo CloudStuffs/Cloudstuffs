@@ -26,7 +26,7 @@ class Home extends Controller {
 
         public function contact() {
         $this->seo(array(
-            "title" => "Contact Us CloudStufft",
+            "title" => "Contact Us CloudStuff",
             "keywords" => "Ask any question, mail us, contact us",
             "description" => "Any question you have about our service or you have any technical issue just contact us.",
             "view" => $this->getLayoutView()
@@ -34,16 +34,15 @@ class Home extends Controller {
         $view = $this->getActionView();
         if (RequestMethods::post("submit") == "Send") {
 
-            $from = RequestMethods::post("name"). ",<" . RequestMethods::post("email").">";
+            $from = RequestMethods::post("email");
             $to = "faizan@cloudstuff.tech";
-            $subject = " Mail From Cloud stuff Page, :".RequestMethods::post("phone");
+            $subject = " Mail From Cloud stuff Page, :".RequestMethods::post("name")."(".RequestMethods::post("phone").")";
             $message= RequestMethods::post("message");
 
             $header = "From: ".$from."\r\n"; 
             $header.= "MIME-Version: 1.0\r\n"; 
             $header.= "Content-Type: text/plain; charset=utf-8\r\n"; 
             $header.= "X-Priority: 1\r\n"; 
-
             if(mail($to, $subject, $message, $header)){
                 $view->set("message", "Your message has been received, we will contact you within 24 hours.");
             }

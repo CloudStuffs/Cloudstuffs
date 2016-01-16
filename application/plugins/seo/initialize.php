@@ -4,7 +4,7 @@
 include("seo.php");
 
 $seo = new SEO(array(
-    "title" => "Cloudstuffs",
+    "title" => "CloudStuff",
     "keywords" => "Application Support and Application Development" ,
     "description" => "We are internet company in india",
     "author" => "Faizan Ayubi",
