@@ -100,7 +100,7 @@ class Home extends Controller {
 
     public function cPanel() {
         $this->seo(array(
-            "title" => "Your Company customized cPanel",
+            "title" => "cPanel: CloudStuff",
             "description" => "Features of CloudStuffs cPanel",
             "view" => $this->getLayoutView()
         ));
