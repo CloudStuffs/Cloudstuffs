@@ -1,37 +1,10 @@
 <!-- CONTACT FORM -->
-<div class="contact-elements">
-    <div class="row">
-        <div class="col-sm-3">
-            <div class="contactmethod darkgray">
-                <h5>Sales</h5>
-                <p>For any kind of sales asisstance contact Sales Department at</p>
-                <p><span>Phone: (+91) 9958636988</span><span><a href="mailto:info@cloudstuff.tech">info@cloudstuff.tech</a></span></p>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="contactmethod blue">
-                <h5>Chat to us</h5>
-                <p>Have a issue with our software or our server chat with us</p>
-                <div class="text-center"><a class="mtr-btn button-raised ripple" href="javascript:void(0)">CHAT ONLINE</a></div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="contactmethod green">
-                <h5>Technical Support</h5>
-                <p>For any technical asisstance about hosting, software and website You can contact us</p>
-                <p><span><a href="/contact.html">Submit a ticket</a> via Help Desk</span><span>Visit our <a href="contact.html">support page</a></span></p>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="contactmethod purple">
-                <h5>Headquarters</h5>
-                <p><span>406 Sant Nagar</span><span>East of Kailash, New Delhi 110065</span><span>Near Nehru Place Metro Station</span></p>
-                <p><span><a href="contact.html">info@cloudstuff.tech</a></span></p>
-            </div>
-        </div>
-    </div>
+<div class="contact-elements">    
     <div class="spacing-75"></div>
     <div class="row">
+        {if(isset($message))}
+        <p>{echo $message}</p>
+        {/if}
         <div class="col-sm-4">
             <h3>CONTACT CLOUDSTUFF</h3>
             <div class="titleborder pink">
@@ -76,6 +49,38 @@
     <div id="map_canvas" class="mapping"></div>
 </div>
 <!-- End of Map -->
+<div class="row">
+
+        <div class="col-sm-3">
+
+            <div class="contactmethod darkgray">
+                <h5>Sales</h5>
+                <p>For any kind of sales asisstance contact Sales Department at</p>
+                <p><span>Phone: (+91) 9958636988</span><span><a href="mailto:info@cloudstuff.tech">info@cloudstuff.tech</a></span></p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="contactmethod blue">
+                <h5>Chat to us</h5>
+                <p>Have a issue with our software or our server chat with us</p>
+                <div class="text-center"><a class="mtr-btn button-raised ripple" href="javascript:void(0)">CHAT ONLINE</a></div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="contactmethod green">
+                <h5>Technical Support</h5>
+                <p>For any technical asisstance about hosting, software and website You can contact us</p>
+                <p><span><a href="/contact.html">Submit a ticket</a> via Help Desk</span><span>Visit our <a href="contact.html">support page</a></span></p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="contactmethod purple">
+                <h5>Headquarters</h5>
+                <p><span>406 Sant Nagar</span><span>East of Kailash, New Delhi 110065</span><span>Near Nehru Place Metro Station</span></p>
+                <p><span><a href="contact.html">info@cloudstuff.tech</a></span></p>
+            </div>
+        </div>
+    </div>
 <script type="text/javascript">
 jQuery(function($) {
     // Asynchronously Load the map API
