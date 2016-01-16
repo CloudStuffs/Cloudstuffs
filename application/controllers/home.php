@@ -58,7 +58,7 @@ class Home extends Controller {
 
     public function about() {
         $this->seo(array(
-            "title" => "Buisness Enterprise Solutions CloudStuffs Provide",
+            "title" => "Business Enterprise Solutions CloudStuffs Provide",
             "view" => $this->getLayoutView()
         ));
     }
